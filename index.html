@@ -1,425 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Faimul BD - Web Developer & Designer Portfolio">
+<title>Faimul BD | Web Developer & Designer</title>
 
-    <title>Faimul BD | Portfolio</title>
+<style>
+:root{
+  --bg:#020b18;
+  --bg2:#06162a;
+  --card:rgba(8,25,46,.72);
+  --text:#f4f8ff;
+  --muted:#aebed3;
+  --blue:#19bfff;
+  --blue2:#087df0;
+  --line:rgba(25,191,255,.22);
+  --shadow:0 0 35px rgba(25,191,255,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 85% 20%,rgba(8,125,240,.15),transparent 30%),
+    radial-gradient(circle at 10% 80%,rgba(25,191,255,.10),transparent 28%),
+    linear-gradient(135deg,var(--bg),var(--bg2));
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* Header */
+header{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  background:rgba(2,11,24,.82);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.nav{
+  height:78px;display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-size:30px;font-weight:800;letter-spacing:-1px}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{
+  color:#e9f2ff;font-weight:600;position:relative;padding:8px 0;
+  transition:.25s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--blue)}
+.nav-links a.active:after{
+  content:"";position:absolute;left:0;right:0;bottom:-7px;height:3px;
+  background:var(--blue);border-radius:99px;box-shadow:0 0 12px var(--blue);
+}
+.menu{display:none;font-size:28px;cursor:pointer;color:var(--blue)}
 
-        html {
-            scroll-behavior: smooth;
-        }
+/* Hero */
+.hero{
+  min-height:100vh;padding-top:120px;display:flex;align-items:center;
+  position:relative;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center;
+}
+.eyebrow{
+  color:var(--blue);font-size:14px;letter-spacing:5px;font-weight:700;
+  margin-bottom:18px;
+}
+.hero h1{font-size:clamp(48px,7vw,78px);line-height:1.02;margin-bottom:14px}
+.hero h1 span{color:var(--blue);text-shadow:0 0 25px rgba(25,191,255,.25)}
+.hero h2{font-size:clamp(25px,3vw,38px);margin-bottom:22px}
+.hero p{font-size:18px;color:var(--muted);max-width:650px}
+.features{display:flex;gap:28px;flex-wrap:wrap;margin:30px 0}
+.feature{display:flex;gap:10px;align-items:center;color:#dcecff;font-weight:600}
+.feature i{font-style:normal;color:var(--blue);font-size:24px}
+.buttons{display:flex;gap:15px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 24px;border-radius:999px;font-weight:700;border:1px solid var(--blue);
+  transition:.25s;cursor:pointer;
+}
+.btn-primary{background:linear-gradient(90deg,#09bdf5,#087df0);box-shadow:0 0 25px rgba(25,191,255,.22)}
+.btn-outline{background:transparent;color:#e9f7ff}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 28px rgba(25,191,255,.32)}
+.profile-wrap{display:flex;justify-content:center;position:relative}
+.profile-ring{
+  width:min(390px,80vw);aspect-ratio:1;border-radius:50%;padding:8px;
+  background:linear-gradient(135deg,#08bdf5,#087df0,#7c3aed,#08bdf5);
+  box-shadow:0 0 55px rgba(25,191,255,.28);
+  animation:float 5s ease-in-out infinite;
+}
+.profile-ring img{
+  width:100%;height:100%;object-fit:cover;border-radius:50%;
+  border:7px solid #031226;display:block;
+}
+@keyframes float{50%{transform:translateY(-10px)}}
+.badge{
+  position:absolute;bottom:12px;right:5px;
+  background:rgba(4,18,35,.92);border:1px solid var(--blue);
+  border-radius:16px;padding:12px 16px;box-shadow:var(--shadow);
+}
+.badge strong{display:block;color:var(--blue)}
+.badge small{color:var(--muted)}
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: white;
-        }
+/* Sections */
+section{padding:105px 0;position:relative}
+.section-head{text-align:center;margin-bottom:50px}
+.section-head .mini{color:var(--blue);letter-spacing:4px;font-size:13px;font-weight:700}
+.section-head h2{font-size:42px;margin-top:8px}
+.section-head p{color:var(--muted);max-width:650px;margin:12px auto 0}
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:center}
+.about-card,.skill-card,.project-card,.contact-card,.stat{
+  background:var(--card);border:1px solid var(--line);border-radius:22px;
+  box-shadow:var(--shadow);backdrop-filter:blur(10px);
+}
+.about-card{padding:32px;text-align:center}
+.about-card img{width:210px;height:210px;border-radius:50%;object-fit:cover;border:4px solid var(--blue);box-shadow:0 0 30px rgba(25,191,255,.2)}
+.about-card h3{font-size:27px;margin:18px 0 4px}
+.about-card .role{color:var(--blue)}
+.about-text p{color:var(--muted);font-size:17px;margin-bottom:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+.stat{padding:20px;text-align:center}
+.stat strong{font-size:30px;color:var(--blue);display:block}
+.stat span{color:var(--muted);font-size:13px}
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(15, 23, 42, 0.95);
-            z-index: 1000;
-        }
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skill-card{padding:25px}
+.skill-card h3{margin-bottom:15px}
+.skill{margin:16px 0}
+.skill-top{display:flex;justify-content:space-between;color:#dbe9fa;font-size:14px;margin-bottom:7px}
+.bar{height:8px;background:#10233c;border-radius:99px;overflow:hidden}
+.bar span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--blue2))}
 
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #38bdf8;
-        }
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.project-card{padding:27px;transition:.25s}
+.project-card:hover{transform:translateY(-7px)}
+.project-icon{font-size:36px;color:var(--blue);margin-bottom:14px}
+.project-card h3{font-size:22px;margin-bottom:8px}
+.project-card p{color:var(--muted);margin-bottom:18px}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags span{font-size:12px;padding:6px 10px;border-radius:99px;border:1px solid var(--line);color:#bfeaff}
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.contact-card{padding:32px}
+.contact-item{display:flex;gap:15px;align-items:center;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.contact-item:last-child{border-bottom:0}
+.contact-item .icon{font-size:25px;color:var(--blue)}
+.contact-item small{display:block;color:#7f94ad}
+.contact-item a:hover{color:var(--blue)}
+.whatsapp{color:#22e27b}
+form{display:grid;gap:14px}
+input,textarea{
+  width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);
+  background:#06172b;color:#fff;outline:none;font:inherit;
+}
+input:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 15px rgba(25,191,255,.1)}
+textarea{min-height:145px;resize:vertical}
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-        }
+.socials{display:flex;gap:12px;margin-top:22px}
+.socials a{
+  width:42px;height:42px;border:1px solid var(--line);border-radius:50%;
+  display:grid;place-items:center;color:var(--blue);font-weight:800;
+  transition:.2s;
+}
+.socials a:hover{background:var(--blue);color:#00101e;transform:translateY(-3px)}
 
-        nav ul li a:hover {
-            color: #38bdf8;
-        }
+footer{padding:28px 0;text-align:center;color:#8295ac;border-top:1px solid rgba(255,255,255,.06)}
+footer span{color:var(--blue)}
 
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 100px 20px 50px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero small {
-            color: #38bdf8;
-            font-size: 20px;
-        }
-
-        .hero h1 {
-            font-size: 65px;
-            margin: 15px 0;
-        }
-
-        .hero h2 {
-            color: #cbd5e1;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            color: #94a3b8;
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        .buttons {
-            margin-top: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 13px 25px;
-            margin: 5px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            background: #38bdf8;
-            color: #0f172a;
-        }
-
-        .btn:hover {
-            opacity: 0.85;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: #38bdf8;
-            border: 1px solid #38bdf8;
-        }
-
-        /* Sections */
-        section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 100px 20px;
-        }
-
-        section h2 {
-            text-align: center;
-            font-size: 40px;
-            margin-bottom: 45px;
-        }
-
-        /* About */
-        .about {
-            text-align: center;
-            max-width: 750px;
-            margin: auto;
-            color: #cbd5e1;
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        /* Skills */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .skill {
-            background: #1e293b;
-            border: 1px solid #334155;
-            padding: 15px 25px;
-            border-radius: 10px;
-        }
-
-        /* Projects */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .project {
-            background: #1e293b;
-            border: 1px solid #334155;
-            padding: 30px;
-            border-radius: 12px;
-        }
-
-        .project h3 {
-            margin-bottom: 15px;
-        }
-
-        .project p {
-            color: #94a3b8;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .project a {
-            color: #38bdf8;
-            text-decoration: none;
-        }
-
-        /* Contact */
-        .contact {
-            text-align: center;
-        }
-
-        .contact p {
-            color: #94a3b8;
-            margin-bottom: 25px;
-            font-size: 18px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #020617;
-            color: #64748b;
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-
-            nav {
-                padding: 18px 5%;
-            }
-
-            nav ul {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 45px;
-            }
-
-            .hero h2 {
-                font-size: 22px;
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
-     .about img {
-    width: 220px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid #38bdf8;
-    display: block;
-    margin: 0 auto 35px;
-}   }
-    </style>
+@media(max-width:850px){
+  .nav-links{
+    position:absolute;top:78px;left:0;width:100%;display:none;flex-direction:column;
+    background:#031022;padding:22px;border-bottom:1px solid var(--line);gap:18px;
+  }
+  .nav-links.show{display:flex}
+  .menu{display:block}
+  .hero-grid,.about-grid,.contact-wrap{grid-template-columns:1fr}
+  .hero{text-align:center}
+  .hero p{margin:auto}
+  .features,.buttons{justify-content:center}
+  .profile-wrap{margin-top:20px}
+  .skills-grid,.projects-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .logo{font-size:25px}
+  .hero h1{font-size:46px}
+  .section-head h2{font-size:34px}
+  .stats{grid-template-columns:1fr}
+  .btn{width:100%}
+}
+</style>
 </head>
 
 <body>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">Faimul BD</div>
-
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">Faimul <span>BD</span></a>
+    <div class="menu" onclick="toggleMenu()">☰</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
+  </div>
+</header>
 
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">WELCOME TO MY PORTFOLIO</div>
+      <h1>Hi, I'm <span>Faimul</span></h1>
+      <h2>Web Developer & Designer</h2>
+      <p>I create modern, responsive and user-friendly websites with clean design, smooth performance and a professional look.</p>
 
-    <!-- Home -->
-    <div class="hero" id="home">
+      <div class="features">
+        <div class="feature"><i>⌘</i> Clean Code</div>
+        <div class="feature"><i>✦</i> Modern Design</div>
+        <div class="feature"><i>⚡</i> Fast Performance</div>
+      </div>
 
-        <div class="hero-content">
-
-            <small>WELCOME TO MY PORTFOLIO</small>
-
-            <h1>I'm Faimul</h1>
-
-            <h2>Web Developer & Digital Professional</h2>
-
-            <p>
-                I create modern, responsive and professional
-                websites for individuals and businesses.
-            </p>
-
-            <div class="buttons">
-
-                <a href="#projects" class="btn">
-                    View My Work
-                </a>
-
-                <a href="#contact" class="btn btn-outline">
-                    Contact Me
-                </a>
-
-            </div>
-
-        </div>
-
+      <div class="buttons">
+        <a class="btn btn-primary" href="#contact">✉ Contact Me</a>
+        <a class="btn btn-outline" href="#projects">View Projects →</a>
+      </div>
     </div>
 
+    <div class="profile-wrap">
+      <div class="profile-ring">
+        <img src="profile.jpg" alt="Faimul BD">
+      </div>
+      <div class="badge">
+        <strong>Available for work</strong>
+        <small>Web • Design • Digital</small>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- About -->
-    <section id="about">
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="mini">ABOUT ME</div>
+      <h2>Who I Am</h2>
+      <p>A simple introduction about my work, interests and goals.</p>
+    </div>
 
-        <h2>About Me</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <img src="profile.jpg" alt="Faimul BD profile photo">
+        <h3>Faimul BD</h3>
+        <div class="role">Web Developer & Designer</div>
+      </div>
 
-        <div class="about">
-<img src="profile.jpg" alt="Faimul BD"
-style="width:180px;height:180px;object-fit:cover;border-radius:50%;display:block;margin:0 auto 30px;border:4px solid #38bdf8;">
-            <p>
-                Hello! I'm Faimul. I am interested in web development,
-                modern website design and digital solutions.
-            </p>
-
-            <br>
-
-            <p>
-                My goal is to create simple, beautiful and
-                user-friendly websites that work perfectly
-                on computers and mobile devices.
-            </p>
-
+      <div class="about-text">
+        <p>Hello! I'm Faimul. I am interested in web development, modern website design and digital solutions.</p>
+        <p>My goal is to create simple, beautiful and user-friendly websites that work perfectly on computers and mobile devices.</p>
+        <div class="stats">
+          <div class="stat"><strong>5+</strong><span>Projects</span></div>
+          <div class="stat"><strong>10+</strong><span>Technologies</span></div>
+          <div class="stat"><strong>100%</strong><span>Responsive</span></div>
+          <div class="stat"><strong>24/7</strong><span>Learning</span></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    </section>
+<section id="skills">
+  <div class="container">
+    <div class="section-head">
+      <div class="mini">MY SKILLS</div>
+      <h2>What I Can Do</h2>
+      <p>Technologies and skills I use to build modern websites.</p>
+    </div>
 
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Frontend Development</h3>
+        <div class="skill"><div class="skill-top"><span>HTML</span><span>95%</span></div><div class="bar"><span style="width:95%"></span></div></div>
+        <div class="skill"><div class="skill-top"><span>CSS</span><span>90%</span></div><div class="bar"><span style="width:90%"></span></div></div>
+        <div class="skill"><div class="skill-top"><span>JavaScript</span><span>80%</span></div><div class="bar"><span style="width:80%"></span></div></div>
+      </div>
 
-    <!-- Skills -->
-    <section id="skills">
+      <div class="skill-card">
+        <h3>Design</h3>
+        <div class="skill"><div class="skill-top"><span>Responsive UI</span><span>92%</span></div><div class="bar"><span style="width:92%"></span></div></div>
+        <div class="skill"><div class="skill-top"><span>Modern Layout</span><span>88%</span></div><div class="bar"><span style="width:88%"></span></div></div>
+        <div class="skill"><div class="skill-top"><span>UX Thinking</span><span>82%</span></div><div class="bar"><span style="width:82%"></span></div></div>
+      </div>
 
-        <h2>My Skills</h2>
+      <div class="skill-card">
+        <h3>Tools & Workflow</h3>
+        <div class="skill"><div class="skill-top"><span>GitHub</span><span>85%</span></div><div class="bar"><span style="width:85%"></span></div></div>
+        <div class="skill"><div class="skill-top"><span>Deployment</span><span>85%</span></div><div class="bar"><span style="width:85%"></span></div></div>
+        <div class="skill"><div class="skill-top"><span>Problem Solving</span><span>90%</span></div><div class="bar"><span style="width:90%"></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="skills">
+<section id="projects">
+  <div class="container">
+    <div class="section-head">
+      <div class="mini">MY PROJECTS</div>
+      <h2>Recent Work</h2>
+      <p>Some example projects and digital solutions.</p>
+    </div>
 
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">Web Design</div>
-            <div class="skill">Responsive Design</div>
-            <div class="skill">WordPress</div>
+    <div class="projects-grid">
+      <article class="project-card">
+        <div class="project-icon">⌘</div>
+        <h3>Business Website</h3>
+        <p>A clean and responsive website for a modern business or service company.</p>
+        <div class="tags"><span>HTML</span><span>CSS</span><span>Responsive</span></div>
+      </article>
+      <article class="project-card">
+        <div class="project-icon">◈</div>
+        <h3>Portfolio Website</h3>
+        <p>A professional personal portfolio with projects, skills and contact information.</p>
+        <div class="tags"><span>Design</span><span>JavaScript</span><span>UI</span></div>
+      </article>
+      <article class="project-card">
+        <div class="project-icon">⚡</div>
+        <h3>Digital Solution</h3>
+        <p>A fast, mobile-friendly digital experience designed around real user needs.</p>
+        <div class="tags"><span>Web</span><span>UX</span><span>Performance</span></div>
+      </article>
+    </div>
+  </div>
+</section>
 
+<section id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="mini">CONTACT ME</div>
+      <h2>Let's Work Together</h2>
+      <p>Have a project or idea? Send a message and let's discuss it.</p>
+    </div>
+
+    <div class="contact-wrap">
+      <div class="contact-card">
+        <h3>Get In Touch</h3>
+        <div class="contact-item">
+          <div class="icon">✉</div>
+          <div><small>Email</small><a href="mailto:your@email.com">your@email.com</a></div>
         </div>
-
-    </section>
-
-
-    <!-- Projects -->
-    <section id="projects">
-
-        <h2>My Projects</h2>
-
-        <div class="projects">
-
-            <div class="project">
-
-                <h3>Portfolio Website</h3>
-
-                <p>
-                    A modern personal portfolio website
-                    designed with HTML and CSS.
-                </p>
-
-                <a href="#">
-                    View Project →
-                </a>
-
-            </div>
-
-
-            <div class="project">
-
-                <h3>Business Website</h3>
-
-                <p>
-                    A professional responsive website
-                    for a small business.
-                </p>
-
-                <a href="#">
-                    View Project →
-                </a>
-
-            </div>
-
-
-            <div class="project">
-
-                <h3>Web Application</h3>
-
-                <p>
-                    A clean and responsive web application
-                    with a modern user interface.
-                </p>
-
-                <a href="#">
-                    View Project →
-                </a>
-
-            </div>
-
+        <div class="contact-item">
+          <div class="icon whatsapp">◉</div>
+          <div><small>WhatsApp</small><a class="whatsapp" href="https://wa.me/88880132966297" target="_blank">Chat on WhatsApp</a></div>
         </div>
+        <div class="contact-item">
+          <div class="icon">⌖</div>
+          <div><small>Service</small><span>Web Development & Design</span></div>
+        </div>
+        <div class="socials">
+          <a href="https://wa.me/880132966297?text=Hello%20Faimul%20BD%2C%20I%20want%20to%20contact%20you." aria-label="GitHub">GH</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="https://wa.me/88880132966297" target="_blank" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
 
-    </section>
+      <div class="contact-card">
+        <form onsubmit="sendMessage(event)">
+          <input id="name" type="text" placeholder="Your Name" required>
+          <input id="email" type="email" placeholder="Your Email" required>
+          <textarea id="message" placeholder="Your Message" required></textarea>
+          <button class="btn btn-primary" type="submit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
 
+<footer>
+  © <span id="year"></span> Faimul BD. All rights reserved.
+</footer>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
+<script>
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('show');
+}
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('show'));
+});
+document.getElementById('year').textContent=new Date().getFullYear();
 
-        <h2>Contact Me</h2>
-
-        <p>
-            Interested in working together?
-        </p>
-
-        <a
-            href="mailto:your@email.com"
-            class="btn"
-        >
-            Send Me an Email
-        </a>
-
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-
-        <p>
-            © 2026 Faimul BD. All Rights Reserved.
-        </p>
-
-    </footer>
-
+function sendMessage(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const message=document.getElementById('message').value.trim();
+  const phone='88880132966297'; // Replace with your WhatsApp number
+  const text=`Hello Faimul BD,%0A%0AName: ${encodeURIComponent(name)}%0A%0AMessage: ${encodeURIComponent(message)}`;
+  window.open(`https://wa.me/${phone}?text=${text}`,'_blank');
+}
+</script>
 </body>
 </html>
