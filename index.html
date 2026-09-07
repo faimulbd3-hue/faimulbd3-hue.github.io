@@ -3,1189 +3,366 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="Faimul BD - Professional Graphic Designer Portfolio">
-
+<meta name="description" content="Faimul BD — Professional Graphic Designer Portfolio">
 <title>Faimul BD | Graphic Designer</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+:root{
+  --bg:#08111f;
+  --bg2:#0d1a2d;
+  --card:rgba(255,255,255,.055);
+  --border:rgba(255,255,255,.11);
+  --text:#f5f7fb;
+  --muted:#aebbd0;
+  --accent:#36b9ff;
+  --accent2:#7c5cff;
+  --shadow:0 25px 70px rgba(0,0,0,.35);
 }
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-    font-family:Inter,Arial,sans-serif;
-    background:#07101f;
-    color:#eef4ff;
-    line-height:1.6;
+  font-family:Inter,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 15% 10%,rgba(54,185,255,.13),transparent 28%),
+    radial-gradient(circle at 85% 25%,rgba(124,92,255,.12),transparent 30%),
+    linear-gradient(135deg,var(--bg),#050b14 70%);
+  line-height:1.7;
 }
-
-a{
-    text-decoration:none;
-    color:inherit;
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(5,11,20,.72);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.07);
 }
-
-.container{
-    width:min(1160px,92%);
-    margin:auto;
+.nav{
+  height:76px;display:flex;align-items:center;justify-content:space-between;
 }
-
-/* ================= NAVBAR ================= */
-
-.navbar{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(7,16,31,.88);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(255,255,255,.08);
+.logo{
+  font-size:24px;font-weight:800;letter-spacing:-.5px;
+  color:var(--accent);
 }
-
-.nav-inner{
-    height:76px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.brand{
-    font-size:27px;
-    font-weight:800;
-    letter-spacing:-1px;
-}
-
-.brand span{
-    color:#35b9ff;
-}
-
-.nav-links{
-    display:flex;
-    gap:30px;
-}
-
-.nav-links a{
-    color:#d7e0ed;
-    font-size:14px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:#35b9ff;
-}
-
-.menu-btn{
-    display:none;
-    border:0;
-    background:none;
-    color:white;
-    font-size:28px;
-    cursor:pointer;
-}
-
-/* ================= HERO ================= */
+.logo span{color:#fff}
+nav{display:flex;gap:28px}
+nav a{color:#dce5f2;font-weight:500;transition:.25s}
+nav a:hover{color:var(--accent)}
+.menu{display:none;background:none;border:0;color:#fff;font-size:28px}
 
 .hero{
-    position:relative;
-    overflow:hidden;
-    padding:110px 0 95px;
-    border-bottom:1px solid rgba(255,255,255,.07);
+  min-height:100vh;display:flex;align-items:center;
+  padding-top:76px;position:relative;overflow:hidden;
 }
-
 .hero-grid{
-    display:grid;
-    grid-template-columns:1.05fr .95fr;
-    gap:70px;
-    align-items:center;
+  display:grid;grid-template-columns:1.15fr .85fr;
+  gap:60px;align-items:center;
 }
-
-.eyebrow{
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:2.2px;
-    color:#35b9ff;
-    margin-bottom:18px;
+.badge{
+  display:inline-flex;padding:8px 14px;border:1px solid rgba(54,185,255,.25);
+  border-radius:999px;background:rgba(54,185,255,.08);
+  color:#8edbff;font-size:13px;font-weight:600;margin-bottom:20px;
 }
-
 h1{
-    font-size:clamp(44px,6vw,78px);
-    line-height:1.03;
-    letter-spacing:-4px;
+  font-size:clamp(45px,7vw,78px);line-height:1.02;
+  letter-spacing:-3px;margin-bottom:22px;
 }
-
-h1 span,
-h2 span{
-    color:#35b9ff;
-}
-
-.hero-text{
-    color:#aebbd0;
-    max-width:620px;
-    font-size:17px;
-    margin:27px 0 32px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:13px;
-    flex-wrap:wrap;
-}
-
+h1 .blue{color:var(--accent)}
+.hero p{max-width:650px;color:var(--muted);font-size:18px;margin-bottom:32px}
+.buttons{display:flex;gap:14px;flex-wrap:wrap}
 .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:13px 21px;
-    border-radius:12px;
-    font-weight:700;
-    font-size:14px;
-    transition:.3s;
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 21px;border-radius:12px;font-weight:700;
+  transition:.25s;border:1px solid var(--border);
 }
-
 .btn-primary{
-    background:#35b9ff;
-    color:#04101c;
-    box-shadow:0 10px 35px rgba(53,185,255,.22);
+  background:linear-gradient(135deg,var(--accent),#2589ff);
+  color:#03101c;border:0;box-shadow:0 12px 35px rgba(54,185,255,.22);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(54,185,255,.32)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+
+.profile-wrap{display:flex;justify-content:center}
+.profile-card{
+  width:min(370px,80vw);aspect-ratio:1;
+  border-radius:34px;padding:10px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  box-shadow:var(--shadow);
+  transform:rotate(2deg);
+}
+.profile-card img{
+  width:100%;height:100%;object-fit:cover;border-radius:27px;
+  background:#111b2b;display:block;transform:rotate(-2deg);
+}
+.floating{
+  position:absolute;bottom:70px;left:50%;transform:translateX(-50%);
+  color:#718097;font-size:12px;letter-spacing:2px;text-transform:uppercase;
 }
 
-.btn-primary:hover{
-    transform:translateY(-3px);
+section{padding:110px 0}
+.section-head{text-align:center;margin-bottom:48px}
+.eyebrow{color:var(--accent);font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+.section-head h2{font-size:42px;letter-spacing:-1.5px;margin:8px 0 12px}
+.section-head p{color:var(--muted);max-width:650px;margin:auto}
+
+.about-grid{
+  display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center;
 }
-
-.btn-ghost{
-    border:1px solid rgba(255,255,255,.16);
-    color:#e8f0fb;
+.about-image{
+  border-radius:26px;overflow:hidden;border:1px solid var(--border);
+  background:var(--card);box-shadow:var(--shadow);
 }
+.about-image img{width:100%;display:block}
+.about-text p{color:var(--muted);margin-bottom:18px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.stat{padding:20px;border:1px solid var(--border);background:var(--card);border-radius:16px;text-align:center}
+.stat strong{display:block;font-size:26px;color:var(--accent)}
+.stat span{font-size:12px;color:var(--muted)}
 
-.btn-ghost:hover{
-    border-color:#35b9ff;
-    color:#35b9ff;
+.services{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
 }
-
-.mini-stats{
-    display:flex;
-    gap:32px;
-    margin-top:45px;
+.service{
+  padding:28px;border-radius:22px;background:var(--card);
+  border:1px solid var(--border);transition:.3s;
 }
-
-.mini-stats div{
-    display:flex;
-    flex-direction:column;
+.service:hover{transform:translateY(-7px);border-color:rgba(54,185,255,.45);box-shadow:var(--shadow)}
+.icon{
+  width:52px;height:52px;display:grid;place-items:center;border-radius:15px;
+  background:linear-gradient(135deg,rgba(54,185,255,.18),rgba(124,92,255,.18));
+  font-size:25px;margin-bottom:18px;
 }
+.service h3{margin-bottom:8px;font-size:19px}
+.service p{color:var(--muted);font-size:14px}
 
-.mini-stats strong{
-    font-size:20px;
+.gallery{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:22px;
 }
-
-.mini-stats span{
-    font-size:11px;
-    color:#8494aa;
+.work{
+  position:relative;overflow:hidden;border-radius:24px;
+  border:1px solid var(--border);background:#0b1422;box-shadow:var(--shadow);
+  min-height:280px;
 }
-
-/* ================= HERO IMAGE ================= */
-
-.hero-card{
-    background:rgba(255,255,255,.045);
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:24px;
-    padding:15px;
-    box-shadow:0 25px 80px rgba(0,0,0,.3);
-    transform:rotate(1deg);
+.work img{width:100%;height:100%;min-height:280px;object-fit:cover;display:block;transition:.5s}
+.work:hover img{transform:scale(1.045)}
+.work-info{
+  position:absolute;left:0;right:0;bottom:0;padding:30px 22px 20px;
+  background:linear-gradient(transparent,rgba(0,0,0,.9));
 }
+.work-info h3{font-size:20px}.work-info p{font-size:13px;color:#d0d8e5}
 
-.card-label{
-    font-size:10px;
-    letter-spacing:2px;
-    color:#8fa0b6;
-    padding:10px 8px;
+.contact-box{
+  display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;
+  padding:42px;border:1px solid var(--border);border-radius:28px;
+  background:
+    radial-gradient(circle at 100% 0,rgba(124,92,255,.18),transparent 35%),
+    linear-gradient(135deg,rgba(54,185,255,.09),rgba(255,255,255,.03));
 }
-
-.hero-art{
-    height:420px;
-    border-radius:16px;
-    overflow:hidden;
-    background:white;
-}
-
-.hero-art img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.hero-card-footer{
-    display:flex;
-    justify-content:space-between;
-    padding:15px 8px 7px;
-    font-size:12px;
-    color:#9ba9bc;
-}
-
-/* ================= SECTIONS ================= */
-
-.section{
-    padding:105px 0;
-}
-
-.about-section{
-    background:#0a1425;
-}
-
-.two-col{
-    display:grid;
-    grid-template-columns:.8fr 1.2fr;
-    gap:80px;
-}
-
-.two-col h2,
-.section-heading h2,
-.contact-section h2{
-    font-size:clamp(34px,4vw,52px);
-    line-height:1.08;
-    letter-spacing:-2px;
-}
-
-.about-copy{
-    color:#aebbd0;
-    font-size:17px;
-}
-
-.about-copy p+p{
-    margin-top:22px;
-}
-
-/* ================= SERVICES ================= */
-
-.services-section{
-    background:#07101f;
-}
-
-.section-heading{
-    text-align:center;
-    max-width:680px;
-    margin:0 auto 50px;
-}
-
-.section-heading p:last-child{
-    color:#8392a8;
-    margin-top:13px;
-}
-
-.service-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:17px;
-}
-
-.service-card{
-    padding:28px;
-    border:1px solid rgba(255,255,255,.09);
-    border-radius:18px;
-    background:rgba(255,255,255,.025);
-    min-height:245px;
-    transition:.3s;
-}
-
-.service-card:hover{
-    transform:translateY(-6px);
-    border-color:rgba(53,185,255,.5);
-}
-
-.service-number{
-    color:#35b9ff;
-    font-weight:800;
-    font-size:13px;
-    margin-bottom:45px;
-}
-
-.service-card h3{
-    font-size:19px;
-    margin-bottom:10px;
-}
-
-.service-card p{
-    font-size:13px;
-    color:#8998ad;
-}
-
-/* ================= PORTFOLIO ================= */
-
-.portfolio-section{
-    background:#0a1425;
-}
-
-.portfolio-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-}
-
-.project{
-    position:relative;
-    overflow:hidden;
-    border-radius:20px;
-    min-height:320px;
-    background:white;
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.project-large{
-    min-height:470px;
-}
-
-.project-wide{
-    min-height:360px;
-}
-
-.project img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.5s;
-}
-
-.project:hover img{
-    transform:scale(1.05);
-}
-
-.project-overlay{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    padding:60px 24px 22px;
-    background:linear-gradient(transparent,rgba(0,0,0,.9));
-}
-
-.project-overlay span{
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:1.8px;
-    color:#35b9ff;
-    font-weight:800;
-}
-
-.project-overlay h3{
-    font-size:19px;
-    margin-top:5px;
-}
-
-/* ================= CTA ================= */
-
-.cta-section{
-    padding:30px 0 105px;
-    background:#0a1425;
-}
-
-.cta-box{
-    border:1px solid rgba(53,185,255,.25);
-    background:linear-gradient(
-        120deg,
-        rgba(53,185,255,.08),
-        rgba(124,77,255,.06)
-    );
-    border-radius:24px;
-    padding:45px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:30px;
-}
-
-.cta-box h2{
-    font-size:34px;
-    line-height:1.1;
-}
-
-.cta-box p:last-child{
-    color:#8e9db2;
-    margin-top:7px;
-}
-
-/* ================= CONTACT ================= */
-
-.contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:80px;
-}
-
-.contact-text{
-    color:#8e9db2;
-    max-width:540px;
-    margin-top:20px;
-}
-
-.contact-card{
-    border-top:1px solid rgba(255,255,255,.1);
-}
-
-.contact-row{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    padding:22px 0;
-    border-bottom:1px solid rgba(255,255,255,.1);
-    font-size:14px;
-}
-
-.contact-row span{
-    color:#7f8da2;
-}
-
-.contact-row a{
-    color:#35b9ff;
-    font-weight:700;
-}
-
-/* ================= FOOTER ================= */
+.contact-box h2{font-size:36px;line-height:1.2;margin:8px 0 10px}
+.contact-box p{color:var(--muted)}
+.whatsapp{font-size:18px;font-weight:800;color:#8de1a2;margin-top:8px}
 
 footer{
-    border-top:1px solid rgba(255,255,255,.08);
-    padding:24px 0;
-    color:#68778d;
-    font-size:12px;
+  border-top:1px solid var(--border);padding:28px 0;color:#8290a5;text-align:center;
+  font-size:13px;
 }
-
-.footer-inner{
-    display:flex;
-    justify-content:space-between;
+@media(max-width:800px){
+  nav{display:none;position:absolute;top:76px;left:0;right:0;padding:20px;
+    flex-direction:column;gap:16px;background:#08111f;border-bottom:1px solid var(--border)}
+  nav.open{display:flex}
+  .menu{display:block}
+  .hero-grid,.about-grid{grid-template-columns:1fr}
+  .hero{padding-top:110px;padding-bottom:70px}
+  .profile-wrap{order:-1}
+  .profile-card{width:270px}
+  .services{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr}
+  .contact-box{grid-template-columns:1fr}
+  .section-head h2{font-size:34px}
+  .floating{display:none}
 }
-
-.footer-inner a{
-    color:#9caabe;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:900px){
-
-    .hero-grid,
-    .two-col,
-    .contact-grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero-grid{
-        gap:45px;
-    }
-
-    .service-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .hero-card{
-        max-width:650px;
-        margin:auto;
-        width:100%;
-    }
-
-    .two-col{
-        gap:35px;
-    }
-
-    .cta-box{
-        align-items:flex-start;
-        flex-direction:column;
-    }
-}
-
-@media(max-width:650px){
-
-    .nav-links{
-        display:none;
-    }
-
-    .menu-btn{
-        display:block;
-    }
-
-    .nav-links.open{
-        display:flex;
-        position:absolute;
-        top:76px;
-        left:0;
-        right:0;
-        background:#081221;
-        padding:20px 5%;
-        flex-direction:column;
-        gap:16px;
-        border-bottom:1px solid rgba(255,255,255,.1);
-    }
-
-    .hero{
-        padding:70px 0;
-    }
-
-    .hero-card{
-        transform:none;
-    }
-
-    .hero-art{
-        height:300px;
-    }
-
-    h1{
-        letter-spacing:-2px;
-    }
-
-    .mini-stats{
-        gap:18px;
-        flex-wrap:wrap;
-    }
-
-    .section{
-        padding:75px 0;
-    }
-
-    .service-grid,
-    .portfolio-grid{
-        grid-template-columns:1fr;
-    }
-
-    .project,
-    .project-large,
-    .project-wide{
-        min-height:330px;
-    }
-
-    .cta-box{
-        padding:30px;
-    }
-
-    .cta-box h2{
-        font-size:28px;
-    }
-
-    .footer-inner{
-        gap:20px;
-        flex-direction:column;
-    }
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
-<header class="navbar">
-
-<div class="container nav-inner">
-
-<a class="brand" href="#home">
-Faimul<span>BD</span>
-</a>
-
-<button class="menu-btn" aria-label="Menu">
-☰
-</button>
-
-<nav class="nav-links">
-
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#portfolio">Portfolio</a>
-<a href="#contact">Contact</a>
-
-</nav>
-
-</div>
-
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">Faimul <span>BD</span></a>
+    <button class="menu" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+    <nav id="nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#works">My Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
-
 
 <main>
 
-<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">✦ GRAPHIC DESIGNER • VISUAL ARTIST</div>
+      <h1>Creative ideas.<br><span class="blue">Beautiful visuals.</span></h1>
+      <p>
+        Hi, I'm Faimul — a graphic designer focused on clean line art,
+        professional illustrations, product guides and modern visual design.
+      </p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="#works">View My Work</a>
+        <a class="btn btn-outline" href="https://wa.me/880132966297" target="_blank">WhatsApp Me</a>
+      </div>
+    </div>
 
-<section id="home" class="hero">
-
-<div class="container hero-grid">
-
-<div class="hero-copy">
-
-<p class="eyebrow">
-GRAPHIC DESIGNER • DIGITAL ARTIST
-</p>
-
-<h1>
-Creative visuals that
-<br>
-<span>tell your story.</span>
-</h1>
-
-<p class="hero-text">
-
-I create clean line art, step-by-step instruction graphics,
-product illustrations and modern digital artwork for brands
-and businesses.
-
-</p>
-
-<div class="hero-buttons">
-
-<a class="btn btn-primary" href="#portfolio">
-View My Work
-</a>
-
-<a class="btn btn-ghost"
-href="https://wa.me/880132966297"
-target="_blank">
-
-WhatsApp Me
-
-</a>
-
-</div>
-
-
-<div class="mini-stats">
-
-<div>
-<strong>01</strong>
-<span>Line Art</span>
-</div>
-
-<div>
-<strong>02</strong>
-<span>Instruction Design</span>
-</div>
-
-<div>
-<strong>03</strong>
-<span>Digital Illustration</span>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="hero-card">
-
-<div class="card-label">
-SELECTED WORK
-</div>
-
-<div class="hero-art">
-
-<img
-src="images/step-guide.jpg"
-alt="Step-by-step illustration">
-
-</div>
-
-<div class="hero-card-footer">
-
-<span>
-Instruction & Product Illustration
-</span>
-
-<span>✦</span>
-
-</div>
-
-</div>
-
-</div>
-
+    <div class="profile-wrap">
+      <div class="profile-card">
+        <img src="profile.jpg" alt="Faimul BD profile photo">
+      </div>
+    </div>
+  </div>
+  <div class="floating">Scroll to explore ↓</div>
 </section>
 
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">About Me</div>
+      <h2>Design with purpose</h2>
+      <p>I turn ideas, products and instructions into clear and attractive visual experiences.</p>
+    </div>
 
-<!-- ================= ABOUT ================= -->
-
-<section id="about" class="section about-section">
-
-<div class="container two-col">
-
-<div>
-
-<p class="eyebrow">
-ABOUT ME
-</p>
-
-<h2>
-Designing with clarity,
-<br>
-<span>detail & purpose.</span>
-</h2>
-
-</div>
-
-
-<div class="about-copy">
-
-<p>
-
-Hello! I'm Faimul, a graphic designer focused on
-illustration and visual communication. I turn ideas,
-products and instructions into simple, attractive
-visuals that are easy to understand.
-
-</p>
-
-<p>
-
-My work includes technical-style line drawings,
-step-by-step instruction graphics, product illustrations
-and creative digital artwork.
-
-</p>
-
-</div>
-
-</div>
-
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="01-step-by-step-guide.jpg" alt="Step by step guide design">
+      </div>
+      <div class="about-text">
+        <p>
+          I create professional graphics that are simple to understand and
+          visually engaging. My work includes step-by-step instruction visuals,
+          line art, product illustrations and premium automotive artwork.
+        </p>
+        <p>
+          My focus is on clean composition, strong visual communication and
+          polished details that make every project look professional.
+        </p>
+        <div class="stats">
+          <div class="stat"><strong>06+</strong><span>Featured Works</span></div>
+          <div class="stat"><strong>100%</strong><span>Creative Focus</span></div>
+          <div class="stat"><strong>24/7</strong><span>Online Contact</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What I Do</div>
+      <h2>My Services</h2>
+      <p>Professional graphic design solutions for products, brands and visual communication.</p>
+    </div>
 
-<!-- ================= SERVICES ================= -->
-
-<section id="services" class="section services-section">
-
-<div class="container">
-
-<div class="section-heading">
-
-<p class="eyebrow">
-WHAT I DO
-</p>
-
-<h2>
-My <span>Services</span>
-</h2>
-
-<p>
-Professional graphics designed for products,
-brands and digital platforms.
-</p>
-
-</div>
-
-
-<div class="service-grid">
-
-
-<article class="service-card">
-
-<div class="service-number">
-01
-</div>
-
-<h3>
-Line Art
-</h3>
-
-<p>
-Clean black-and-white line illustrations for
-products, manuals, books and presentations.
-</p>
-
-</article>
-
-
-<article class="service-card">
-
-<div class="service-number">
-02
-</div>
-
-<h3>
-Step-by-Step Guides
-</h3>
-
-<p>
-Clear visual instructions that show users exactly
-how to use, install or assemble a product.
-</p>
-
-</article>
-
-
-<article class="service-card">
-
-<div class="service-number">
-03
-</div>
-
-<h3>
-Product Illustration
-</h3>
-
-<p>
-Stylish product visuals for catalogs, websites,
-packaging and marketing materials.
-</p>
-
-</article>
-
-
-<article class="service-card">
-
-<div class="service-number">
-04
-</div>
-
-<h3>
-Digital Artwork
-</h3>
-
-<p>
-Creative vector-style artwork and custom
-illustrations made to match your visual identity.
-</p>
-
-</article>
-
-
-</div>
-
-</div>
-
+    <div class="services">
+      <div class="service">
+        <div class="icon">✎</div>
+        <h3>Line Art</h3>
+        <p>Clean, accurate and professional line-art illustrations for products and concepts.</p>
+      </div>
+      <div class="service">
+        <div class="icon">▣</div>
+        <h3>Instruction Guides</h3>
+        <p>Step-by-step visual guides that make product instructions easy to understand.</p>
+      </div>
+      <div class="service">
+        <div class="icon">◈</div>
+        <h3>Product Illustration</h3>
+        <p>Modern product visuals and presentation graphics designed for a professional look.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
+<section id="works">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Portfolio</div>
+      <h2>Selected Work</h2>
+      <p>A selection of my illustration, instruction and visual design projects.</p>
+    </div>
 
-<!-- ================= PORTFOLIO ================= -->
+    <div class="gallery">
+      <article class="work">
+        <img src="01-step-by-step-guide.jpg" alt="Step by step guide">
+        <div class="work-info"><h3>Step-by-Step Guide</h3><p>Instructional illustration</p></div>
+      </article>
 
-<section id="portfolio" class="section portfolio-section">
+      <article class="work">
+        <img src="02-bicycle-line-art.jpg" alt="Bicycle line art">
+        <div class="work-info"><h3>Bicycle Line Art</h3><p>Technical line illustration</p></div>
+      </article>
 
-<div class="container">
+      <article class="work">
+        <img src="03-professional-car-illustration.jpg" alt="Professional car illustration">
+        <div class="work-info"><h3>Professional Car Illustration</h3><p>Automotive artwork</p></div>
+      </article>
 
-<div class="section-heading">
+      <article class="work">
+        <img src="04-instruction-manual.jpg" alt="Instruction manual design">
+        <div class="work-info"><h3>Instruction Manual</h3><p>Visual communication design</p></div>
+      </article>
 
-<p class="eyebrow">
-MY WORK
-</p>
+      <article class="work">
+        <img src="05-product-step-guide.jpg" alt="Product step guide">
+        <div class="work-info"><h3>Product Step Guide</h3><p>Product instruction visual</p></div>
+      </article>
 
-<h2>
-Selected <span>Projects</span>
-</h2>
-
-<p>
-A few examples of my illustration and graphic
-design work.
-</p>
-
-</div>
-
-
-<div class="portfolio-grid">
-
-
-<article class="project project-large">
-
-<img
-src="images/step-guide.jpg"
-alt="Step-by-step instruction graphic">
-
-<div class="project-overlay">
-
-<span>
-Instruction Design
-</span>
-
-<h3>
-Step-by-Step Product Guide
-</h3>
-
-</div>
-
-</article>
-
-
-<article class="project">
-
-<img
-src="images/bicycle-line-art.jpg"
-alt="Bicycle line art">
-
-<div class="project-overlay">
-
-<span>
-Line Art
-</span>
-
-<h3>
-Technical Bicycle Illustration
-</h3>
-
-</div>
-
-</article>
-
-
-<article class="project">
-
-<img
-src="images/car-illustration.jpg"
-alt="Car digital illustration">
-
-<div class="project-overlay">
-
-<span>
-Digital Illustration
-</span>
-
-<h3>
-Automotive Artwork
-</h3>
-
-</div>
-
-</article>
-
-
-<article class="project">
-
-<img
-src="images/instruction-manual.jpg"
-alt="Instruction manual">
-
-<div class="project-overlay">
-
-<span>
-Instruction Manual
-</span>
-
-<h3>
-Product Usage Illustration
-</h3>
-
-</div>
-
-</article>
-
-
-<article class="project">
-
-<img
-src="images/step-panels.jpg"
-alt="Three step illustration">
-
-<div class="project-overlay">
-
-<span>
-Visual Guide
-</span>
-
-<h3>
-3-Step Visual Instructions
-</h3>
-
-</div>
-
-</article>
-
-
-<article class="project project-wide">
-
-<img
-src="images/color-product.jpg"
-alt="Colored product illustration">
-
-<div class="project-overlay">
-
-<span>
-Product Illustration
-</span>
-
-<h3>
-Color Product Artwork
-</h3>
-
-</div>
-
-</article>
-
-
-</div>
-
-</div>
-
+      <article class="work">
+        <img src="06-sports-car-illustration.jpg" alt="Sports car illustration">
+        <div class="work-info"><h3>Sports Car Illustration</h3><p>Creative automotive design</p></div>
+      </article>
+    </div>
+  </div>
 </section>
 
-
-<!-- ================= CTA ================= -->
-
-<section class="cta-section">
-
-<div class="container cta-box">
-
-<div>
-
-<p class="eyebrow">
-LET'S WORK TOGETHER
-</p>
-
-<h2>
-Have a design project in mind?
-</h2>
-
-<p>
-Let's turn your idea into a professional visual.
-</p>
-
-</div>
-
-
-<a
-class="btn btn-primary"
-href="https://wa.me/880132966297"
-target="_blank">
-
-Chat on WhatsApp ↗
-
-</a>
-
-</div>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact" class="section contact-section">
-
-<div class="container contact-grid">
-
-<div>
-
-<p class="eyebrow">
-CONTACT
-</p>
-
-<h2>
-Let's create something
-<br>
-<span>great together.</span>
-</h2>
-
-<p class="contact-text">
-
-For design work, illustrations and custom graphics,
-contact me directly on WhatsApp.
-
-</p>
-
-</div>
-
-
-<div class="contact-card">
-
-
-<div class="contact-row">
-
-<span>
-WhatsApp
-</span>
-
-<a
-href="https://wa.me/880132966297"
-target="_blank">
-
-0132966297 ↗
-
-</a>
-
-</div>
-
-
-<div class="contact-row">
-
-<span>
-Specialization
-</span>
-
-<strong>
-Graphic Design & Illustration
-</strong>
-
-</div>
-
-
-<div class="contact-row">
-
-<span>
-Available for
-</span>
-
-<strong>
-Freelance Projects
-</strong>
-
-</div>
-
-
-</div>
-
-</div>
-
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div>
+        <div class="eyebrow">Let's Work Together</div>
+        <h2>Have a design project in mind?</h2>
+        <p>Send me your idea and let's create something professional and beautiful.</p>
+        <div class="whatsapp">WhatsApp: +880 1329-66297</div>
+      </div>
+      <a class="btn btn-primary" href="https://wa.me/880132966297?text=Hello%20Faimul%2C%20I%20would%20like%20to%20discuss%20a%20design%20project." target="_blank">
+        Chat on WhatsApp →
+      </a>
+    </div>
+  </div>
 </section>
 
 </main>
 
-
-<!-- ================= FOOTER ================= -->
-
 <footer>
-
-<div class="container footer-inner">
-
-<span>
-© 2026 Faimul BD. All rights reserved.
-</span>
-
-<a href="#home">
-Back to top ↑
-</a>
-
-</div>
-
+  <div class="container">
+    © 2026 Faimul BD — Graphic Designer. All rights reserved.
+  </div>
 </footer>
 
-
-<!-- ================= JAVASCRIPT ================= -->
-
 <script>
-
-const menuBtn = document.querySelector(".menu-btn");
-
-const nav = document.querySelector(".nav-links");
-
-
-menuBtn.addEventListener("click", function(){
-
-    nav.classList.toggle("open");
-
+function toggleMenu(){
+  document.getElementById('nav').classList.toggle('open');
+}
+document.querySelectorAll('nav a').forEach(link=>{
+  link.addEventListener('click',()=>document.getElementById('nav').classList.remove('open'));
 });
-
-
-document.querySelectorAll(".nav-links a").forEach(function(link){
-
-    link.addEventListener("click", function(){
-
-        nav.classList.remove("open");
-
-    });
-
-});
-
 </script>
 
 </body>
