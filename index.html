@@ -8,199 +8,211 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#08111f;
-  --bg2:#0d1a2d;
-  --card:rgba(255,255,255,.055);
-  --border:rgba(255,255,255,.11);
-  --text:#f5f7fb;
-  --muted:#aebbd0;
-  --accent:#36b9ff;
-  --accent2:#7c5cff;
-  --shadow:0 25px 70px rgba(0,0,0,.35);
+  --navy:#06162e;
+  --navy2:#0a2344;
+  --blue:#087cff;
+  --blue2:#18a5ff;
+  --ink:#0a1728;
+  --muted:#667085;
+  --line:#e5eaf0;
+  --white:#fff;
+  --soft:#f6f8fb;
+  --radius:18px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  font-family:Inter,Arial,sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(circle at 15% 10%,rgba(54,185,255,.13),transparent 28%),
-    radial-gradient(circle at 85% 25%,rgba(124,92,255,.12),transparent 30%),
-    linear-gradient(135deg,var(--bg),#050b14 70%);
-  line-height:1.7;
+  font-family:"DM Sans",Arial,sans-serif;
+  color:var(--ink);
+  background:#fff;
+  line-height:1.6;
 }
 a{text-decoration:none;color:inherit}
-.container{width:min(1120px,92%);margin:auto}
-header{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  background:rgba(5,11,20,.72);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(255,255,255,.07);
-}
+img{display:block;max-width:100%}
+.container{width:min(1180px,calc(100% - 48px));margin:auto}
+
+/* NAV */
 .nav{
-  height:76px;display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(10,23,40,.08);
 }
-.logo{
-  font-size:24px;font-weight:800;letter-spacing:-.5px;
-  color:var(--accent);
+.nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:25px;font-weight:800;letter-spacing:-1px}
+.logo span{color:var(--blue)}
+.logo small{display:block;font-size:8px;letter-spacing:2px;font-weight:600;margin-top:-5px}
+.nav-links{display:flex;gap:34px;font-size:13px;font-weight:600}
+.nav-links a{position:relative;padding:8px 0}
+.nav-links a:after{
+  content:"";position:absolute;left:0;bottom:0;width:0;height:2px;
+  background:var(--blue);transition:.3s
 }
-.logo span{color:#fff}
-nav{display:flex;gap:28px}
-nav a{color:#dce5f2;font-weight:500;transition:.25s}
-nav a:hover{color:var(--accent)}
-.menu{display:none;background:none;border:0;color:#fff;font-size:28px}
+.nav-links a:hover:after{width:100%}
+.wa-btn{
+  background:var(--navy);color:white;border-radius:8px;
+  padding:11px 16px;font-size:12px;font-weight:700;
+  display:flex;align-items:center;gap:9px
+}
+.wa-dot{width:20px;height:20px;border-radius:50%;background:#25d366;display:grid;place-items:center}
+.menu{display:none;border:0;background:none;font-size:26px}
 
-.hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding-top:76px;position:relative;overflow:hidden;
+/* HERO */
+.hero{padding:62px 0 42px;background:#fff}
+.hero-grid{display:grid;grid-template-columns:39% 61%;align-items:center;gap:15px}
+.eyebrow{font-size:11px;letter-spacing:4px;font-weight:700;margin-bottom:16px}
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(52px,6vw,82px);
+  line-height:.98;letter-spacing:-3px;margin-bottom:22px
 }
-.hero-grid{
-  display:grid;grid-template-columns:1.15fr .85fr;
-  gap:60px;align-items:center;
-}
-.badge{
-  display:inline-flex;padding:8px 14px;border:1px solid rgba(54,185,255,.25);
-  border-radius:999px;background:rgba(54,185,255,.08);
-  color:#8edbff;font-size:13px;font-weight:600;margin-bottom:20px;
-}
-h1{
-  font-size:clamp(45px,7vw,78px);line-height:1.02;
-  letter-spacing:-3px;margin-bottom:22px;
-}
-h1 .blue{color:var(--accent)}
-.hero p{max-width:650px;color:var(--muted);font-size:18px;margin-bottom:32px}
-.buttons{display:flex;gap:14px;flex-wrap:wrap}
+.hero h1 span{color:var(--blue)}
+.hero-copy{max-width:470px;color:#344054;font-size:15px;margin-bottom:26px}
+.buttons{display:flex;gap:12px;align-items:center}
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:13px 21px;border-radius:12px;font-weight:700;
-  transition:.25s;border:1px solid var(--border);
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 18px;border-radius:8px;font-size:12px;font-weight:700;
+  border:1px solid var(--navy)
 }
-.btn-primary{
-  background:linear-gradient(135deg,var(--accent),#2589ff);
-  color:#03101c;border:0;box-shadow:0 12px 35px rgba(54,185,255,.22);
+.btn.primary{background:var(--navy);color:#fff}
+.btn.primary:hover{background:var(--blue);border-color:var(--blue)}
+.btn.light{border-color:#cdd5df}
+.stats{display:flex;gap:0;margin-top:38px}
+.stat{padding-right:28px;margin-right:28px;border-right:1px solid var(--line)}
+.stat:last-child{border:0}
+.stat b{font-size:19px}.stat small{display:block;color:var(--muted);font-size:10px;margin-top:2px}
+.hero-art{position:relative;min-height:410px;display:flex;align-items:center;justify-content:center}
+.hero-car{
+  width:94%;position:relative;z-index:2;
+  filter:drop-shadow(0 18px 16px rgba(7,24,45,.15))
 }
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(54,185,255,.32)}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.profile{
+  position:absolute;right:0;top:12px;width:170px;height:225px;
+  object-fit:cover;object-position:center;border-radius:0;
+  background:#55aaf0;z-index:3
+}
+.note{position:absolute;right:185px;top:0;font-family:"Playfair Display",serif;font-size:20px;line-height:1.05;transform:rotate(-5deg)}
+.hero-caption{position:absolute;bottom:0;left:8%;font-size:11px}
+.hero-caption b{display:block}.hero-caption span{color:var(--muted)}
 
-.profile-wrap{display:flex;justify-content:center}
-.profile-card{
-  width:min(370px,80vw);aspect-ratio:1;
-  border-radius:34px;padding:10px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  box-shadow:var(--shadow);
-  transform:rotate(2deg);
-}
-.profile-card img{
-  width:100%;height:100%;object-fit:cover;border-radius:27px;
-  background:#111b2b;display:block;transform:rotate(-2deg);
-}
-.floating{
-  position:absolute;bottom:70px;left:50%;transform:translateX(-50%);
-  color:#718097;font-size:12px;letter-spacing:2px;text-transform:uppercase;
-}
+/* SECTION */
+section{padding:76px 0}
+.section-soft{background:var(--soft)}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:38px}
+.kicker{font-size:10px;letter-spacing:4px;font-weight:700;margin-bottom:10px}
+.section-title{font-family:"Playfair Display",serif;font-size:42px;line-height:1.05}
+.section-title span{color:var(--blue)}
+.section-desc{max-width:410px;color:var(--muted);font-size:13px}
 
-section{padding:110px 0}
-.section-head{text-align:center;margin-bottom:48px}
-.eyebrow{color:var(--accent);font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
-.section-head h2{font-size:42px;letter-spacing:-1.5px;margin:8px 0 12px}
-.section-head p{color:var(--muted);max-width:650px;margin:auto}
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:270px repeat(4,1fr);border-top:1px solid var(--line)}
+.service-intro{padding:25px 35px 25px 0}
+.service-intro p{font-size:12px;color:var(--muted);margin:18px 0}
+.service{padding:27px 22px;border-left:1px solid var(--line);min-height:180px}
+.icon{font-size:30px;color:var(--blue);margin-bottom:12px}
+.service h3{font-size:14px;margin-bottom:10px}
+.service p{font-size:11px;color:var(--muted)}
 
-.about-grid{
-  display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center;
-}
-.about-image{
-  border-radius:26px;overflow:hidden;border:1px solid var(--border);
-  background:var(--card);box-shadow:var(--shadow);
-}
-.about-image img{width:100%;display:block}
-.about-text p{color:var(--muted);margin-bottom:18px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
-.stat{padding:20px;border:1px solid var(--border);background:var(--card);border-radius:16px;text-align:center}
-.stat strong{display:block;font-size:26px;color:var(--accent)}
-.stat span{font-size:12px;color:var(--muted)}
+/* PORTFOLIO */
+.portfolio{background:#f8fafc}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 20px}
+.card{background:#fff;border:1px solid #e8edf2;overflow:hidden}
+.card-img{height:185px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:.45s}
+.card:hover img{transform:scale(1.035)}
+.card-body{padding:14px 15px 16px;display:flex;justify-content:space-between;align-items:center}
+.card-title{font-size:11px;font-weight:700}
+.card-cat{font-size:10px;color:var(--muted);margin-top:2px}
+.arrow{width:28px;height:28px;border:1px solid #ccd5df;border-radius:50%;display:grid;place-items:center;color:var(--blue)}
 
-.services{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
-}
-.service{
-  padding:28px;border-radius:22px;background:var(--card);
-  border:1px solid var(--border);transition:.3s;
-}
-.service:hover{transform:translateY(-7px);border-color:rgba(54,185,255,.45);box-shadow:var(--shadow)}
-.icon{
-  width:52px;height:52px;display:grid;place-items:center;border-radius:15px;
-  background:linear-gradient(135deg,rgba(54,185,255,.18),rgba(124,92,255,.18));
-  font-size:25px;margin-bottom:18px;
-}
-.service h3{margin-bottom:8px;font-size:19px}
-.service p{color:var(--muted);font-size:14px}
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:190px 1fr 1fr;gap:55px;align-items:center}
+.about-photo{height:230px;object-fit:cover;background:#55aaf0}
+.about h2{font-family:"Playfair Display",serif;font-size:34px;line-height:1.05;margin-bottom:14px}
+.about p{font-size:12px;color:var(--muted);max-width:420px}
+.skills{border-left:1px solid var(--line);padding-left:40px}
+.skill{margin-bottom:13px}
+.skill-row{display:flex;justify-content:space-between;font-size:10px;margin-bottom:5px}
+.bar{height:2px;background:#dce3eb}.bar i{display:block;height:100%;background:var(--blue)}
 
-.gallery{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:22px;
-}
-.work{
-  position:relative;overflow:hidden;border-radius:24px;
-  border:1px solid var(--border);background:#0b1422;box-shadow:var(--shadow);
-  min-height:280px;
-}
-.work img{width:100%;height:100%;min-height:280px;object-fit:cover;display:block;transition:.5s}
-.work:hover img{transform:scale(1.045)}
-.work-info{
-  position:absolute;left:0;right:0;bottom:0;padding:30px 22px 20px;
-  background:linear-gradient(transparent,rgba(0,0,0,.9));
-}
-.work-info h3{font-size:20px}.work-info p{font-size:13px;color:#d0d8e5}
+/* CTA */
+.cta{background:var(--navy);color:#fff;padding:35px 0}
+.cta-inner{display:grid;grid-template-columns:1fr 1.5fr 1fr;align-items:center;gap:30px}
+.cta h2{font-family:"Playfair Display",serif;font-size:28px}
+.cta p{font-size:11px;color:#b8c5d6}
+.contact-number{font-size:16px;font-weight:700}
+.cta .btn{justify-self:end;background:var(--blue);border-color:var(--blue);color:#fff}
 
-.contact-box{
-  display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;
-  padding:42px;border:1px solid var(--border);border-radius:28px;
-  background:
-    radial-gradient(circle at 100% 0,rgba(124,92,255,.18),transparent 35%),
-    linear-gradient(135deg,rgba(54,185,255,.09),rgba(255,255,255,.03));
-}
-.contact-box h2{font-size:36px;line-height:1.2;margin:8px 0 10px}
-.contact-box p{color:var(--muted)}
-.whatsapp{font-size:18px;font-weight:800;color:#8de1a2;margin-top:8px}
+/* FOOTER */
+footer{background:#03101f;color:#c7d1dd;padding:22px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;font-size:10px}
+.footer-logo{font-size:20px;font-weight:800;color:#fff}
+.footer-logo span{color:var(--blue)}
+.footer-links{display:flex;gap:20px}
 
-footer{
-  border-top:1px solid var(--border);padding:28px 0;color:#8290a5;text-align:center;
-  font-size:13px;
+/* MOBILE */
+@media(max-width:950px){
+  .nav-links{gap:18px}
+  .wa-btn{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{min-height:360px}
+  .hero-car{width:90%}
+  .profile{width:135px;height:180px}
+  .note{right:145px}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .service-intro{grid-column:1/-1}
+  .about-grid{grid-template-columns:160px 1fr}
+  .skills{grid-column:1/-1;border-left:0;padding-left:0}
+  .cta-inner{grid-template-columns:1fr 1fr}
 }
-@media(max-width:800px){
-  nav{display:none;position:absolute;top:76px;left:0;right:0;padding:20px;
-    flex-direction:column;gap:16px;background:#08111f;border-bottom:1px solid var(--border)}
-  nav.open{display:flex}
+@media(max-width:680px){
+  .container{width:min(100% - 30px,1180px)}
+  .nav-inner{height:68px}
+  .nav-links{display:none}
   .menu{display:block}
-  .hero-grid,.about-grid{grid-template-columns:1fr}
-  .hero{padding-top:110px;padding-bottom:70px}
-  .profile-wrap{order:-1}
-  .profile-card{width:270px}
-  .services{grid-template-columns:1fr}
-  .gallery{grid-template-columns:1fr}
-  .contact-box{grid-template-columns:1fr}
-  .section-head h2{font-size:34px}
-  .floating{display:none}
+  .hero{padding-top:40px}
+  .hero h1{font-size:54px;letter-spacing:-2px}
+  .hero-art{min-height:300px;margin-top:20px}
+  .profile{width:105px;height:140px}
+  .note{right:112px;font-size:15px}
+  .stats{flex-wrap:wrap;gap:18px}
+  .stat{margin-right:0;padding-right:18px}
+  section{padding:55px 0}
+  .section-head{display:block}
+  .section-desc{margin-top:15px}
+  .services-grid{grid-template-columns:1fr}
+  .service{border-left:0;border-top:1px solid var(--line)}
+  .portfolio-grid{grid-template-columns:1fr}
+  .card-img{height:220px}
+  .about-grid{grid-template-columns:1fr}
+  .about-photo{width:180px}
+  .cta-inner{grid-template-columns:1fr}
+  .cta .btn{justify-self:start}
+  .footer-inner{display:block}.footer-links{margin-top:12px;flex-wrap:wrap}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="container nav">
-    <a class="logo" href="#home">Faimul <span>BD</span></a>
-    <button class="menu" onclick="toggleMenu()" aria-label="Open menu">☰</button>
-    <nav id="nav">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#works">My Work</a>
-      <a href="#contact">Contact</a>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#home">FAIMUL <span>BD</span><small>GRAPHIC DESIGNER</small></a>
+    <nav class="nav-links">
+      <a href="#home">WORK</a>
+      <a href="#about">ABOUT</a>
+      <a href="#services">SERVICES</a>
+      <a href="#portfolio">PORTFOLIO</a>
+      <a href="#contact">CONTACT</a>
     </nav>
+    <a class="wa-btn" href="https://wa.me/880132966297" target="_blank">
+      <span class="wa-dot">◉</span> Chat on WhatsApp<br>+880 1329-66297
+    </a>
+    <button class="menu" onclick="document.querySelector('.nav-links').classList.toggle('show')">☰</button>
   </div>
 </header>
 
@@ -209,141 +221,95 @@ footer{
 <section class="hero" id="home">
   <div class="container hero-grid">
     <div>
-      <div class="badge">✦ GRAPHIC DESIGNER • VISUAL ARTIST</div>
-      <h1>Creative ideas.<br><span class="blue">Beautiful visuals.</span></h1>
-      <p>
-        Hi, I'm Faimul — a graphic designer focused on clean line art,
-        professional illustrations, product guides and modern visual design.
-      </p>
+      <div class="eyebrow">HELLO, I'M</div>
+      <h1>Faimul BD<br>Graphic <span>Designer</span></h1>
+      <p class="hero-copy">I create clean illustrations, step-by-step guides, product visuals and digital artwork that turn ideas into simple, powerful visuals.</p>
       <div class="buttons">
-        <a class="btn btn-primary" href="#works">View My Work</a>
-        <a class="btn btn-outline" href="https://wa.me/880132966297" target="_blank">WhatsApp Me</a>
+        <a class="btn primary" href="https://wa.me/880132966297?text=Hello%20Faimul%2C%20I%20need%20a%20graphic%20design%20service." target="_blank">◉ Let's Work Together</a>
+        <a class="btn light" href="#portfolio">View My Work →</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>6+</b><small>Projects Completed</small></div>
+        <div class="stat"><b>100%</b><small>Client Satisfaction</small></div>
+        <div class="stat"><b>2+</b><small>Years Experience</small></div>
       </div>
     </div>
 
-    <div class="profile-wrap">
-      <div class="profile-card">
-        <img src="profile.jpg" alt="Faimul BD profile photo">
-      </div>
-    </div>
-  </div>
-  <div class="floating">Scroll to explore ↓</div>
-</section>
-
-<section id="about">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">About Me</div>
-      <h2>Design with purpose</h2>
-      <p>I turn ideas, products and instructions into clear and attractive visual experiences.</p>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-image">
-        <img src="01-step-by-step-guide.jpg" alt="Step by step guide design">
-      </div>
-      <div class="about-text">
-        <p>
-          I create professional graphics that are simple to understand and
-          visually engaging. My work includes step-by-step instruction visuals,
-          line art, product illustrations and premium automotive artwork.
-        </p>
-        <p>
-          My focus is on clean composition, strong visual communication and
-          polished details that make every project look professional.
-        </p>
-        <div class="stats">
-          <div class="stat"><strong>06+</strong><span>Featured Works</span></div>
-          <div class="stat"><strong>100%</strong><span>Creative Focus</span></div>
-          <div class="stat"><strong>24/7</strong><span>Online Contact</span></div>
-        </div>
-      </div>
+    <div class="hero-art">
+      <img class="hero-car" src="06-sports-car-illustration.jpg" alt="Sports car illustration">
+      <img class="profile" src="profile.jpg" alt="Faimul BD">
+      <div class="note">Design<br>Creates<br>Value</div>
+      <div class="hero-caption"><b>Sports Car Illustration</b><span>Digital Artwork</span></div>
     </div>
   </div>
 </section>
 
 <section id="services">
   <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">What I Do</div>
-      <h2>My Services</h2>
-      <p>Professional graphic design solutions for products, brands and visual communication.</p>
-    </div>
-
-    <div class="services">
-      <div class="service">
-        <div class="icon">✎</div>
-        <h3>Line Art</h3>
-        <p>Clean, accurate and professional line-art illustrations for products and concepts.</p>
+    <div class="services-grid">
+      <div class="service-intro">
+        <div class="kicker">WHAT I DO</div>
+        <h2 class="section-title">Creative Services<br>for <span>Your Brand</span></h2>
+        <p>I provide professional graphic design solutions that help businesses communicate clearly and stand out.</p>
+        <a href="#contact" style="font-size:11px;font-weight:700">Explore All Services →</a>
       </div>
-      <div class="service">
-        <div class="icon">▣</div>
-        <h3>Instruction Guides</h3>
-        <p>Step-by-step visual guides that make product instructions easy to understand.</p>
-      </div>
-      <div class="service">
-        <div class="icon">◈</div>
-        <h3>Product Illustration</h3>
-        <p>Modern product visuals and presentation graphics designed for a professional look.</p>
-      </div>
+      <div class="service"><div class="icon">♢</div><h3>Line Art</h3><p>Clean, detailed line drawings for products, manuals, books and more.</p></div>
+      <div class="service"><div class="icon">▱</div><h3>Instruction Design</h3><p>Step-by-step guides and visual instructions for better understanding.</p></div>
+      <div class="service"><div class="icon">◇</div><h3>Product Illustration</h3><p>Stylish product visuals for websites, catalogs, packaging and marketing.</p></div>
+      <div class="service"><div class="icon">▧</div><h3>Digital Artwork</h3><p>Creative vector illustrations and custom artwork for brands and businesses.</p></div>
     </div>
   </div>
 </section>
 
-<section id="works">
+<section class="portfolio" id="portfolio">
   <div class="container">
     <div class="section-head">
-      <div class="eyebrow">Portfolio</div>
-      <h2>Selected Work</h2>
-      <p>A selection of my illustration, instruction and visual design projects.</p>
-    </div>
-
-    <div class="gallery">
-      <article class="work">
-        <img src="01-step-by-step-guide.jpg" alt="Step by step guide">
-        <div class="work-info"><h3>Step-by-Step Guide</h3><p>Instructional illustration</p></div>
-      </article>
-
-      <article class="work">
-        <img src="02-bicycle-line-art.jpg" alt="Bicycle line art">
-        <div class="work-info"><h3>Bicycle Line Art</h3><p>Technical line illustration</p></div>
-      </article>
-
-      <article class="work">
-        <img src="03-professional-car-illustration.jpg" alt="Professional car illustration">
-        <div class="work-info"><h3>Professional Car Illustration</h3><p>Automotive artwork</p></div>
-      </article>
-
-      <article class="work">
-        <img src="04-instruction-manual.jpg" alt="Instruction manual design">
-        <div class="work-info"><h3>Instruction Manual</h3><p>Visual communication design</p></div>
-      </article>
-
-      <article class="work">
-        <img src="05-product-step-guide.jpg" alt="Product step guide">
-        <div class="work-info"><h3>Product Step Guide</h3><p>Product instruction visual</p></div>
-      </article>
-
-      <article class="work">
-        <img src="06-sports-car-illustration.jpg" alt="Sports car illustration">
-        <div class="work-info"><h3>Sports Car Illustration</h3><p>Creative automotive design</p></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <div class="contact-box">
       <div>
-        <div class="eyebrow">Let's Work Together</div>
-        <h2>Have a design project in mind?</h2>
-        <p>Send me your idea and let's create something professional and beautiful.</p>
-        <div class="whatsapp">WhatsApp: +880 1329-66297</div>
+        <div class="kicker">MY PORTFOLIO</div>
+        <h2 class="section-title">Selected <span>Works</span></h2>
       </div>
-      <a class="btn btn-primary" href="https://wa.me/880132966297?text=Hello%20Faimul%2C%20I%20would%20like%20to%20discuss%20a%20design%20project." target="_blank">
-        Chat on WhatsApp →
-      </a>
+      <p class="section-desc">A collection of recent projects showcasing illustration, instruction design and product visuals.</p>
+    </div>
+
+    <div class="portfolio-grid">
+      <article class="card"><div class="card-img"><img src="01-step-by-step-guide.jpg" alt="Step-by-Step Guide"></div><div class="card-body"><div><div class="card-title">01. Step-by-Step Guide</div><div class="card-cat">Instruction Design</div></div><div class="arrow">→</div></div></article>
+      <article class="card"><div class="card-img"><img src="02-bicycle-line-art.jpg" alt="Bicycle Line Art"></div><div class="card-body"><div><div class="card-title">02. Bicycle Line Art</div><div class="card-cat">Line Art</div></div><div class="arrow">→</div></div></article>
+      <article class="card"><div class="card-img"><img src="03-professional-car-illustration.jpg" alt="Professional Car Illustration"></div><div class="card-body"><div><div class="card-title">03. Professional Car Illustration</div><div class="card-cat">Vehicle Illustration</div></div><div class="arrow">→</div></div></article>
+      <article class="card"><div class="card-img"><img src="04-instruction-manual.jpg" alt="Instruction Manual"></div><div class="card-body"><div><div class="card-title">04. Instruction Manual</div><div class="card-cat">Instruction Design</div></div><div class="arrow">→</div></div></article>
+      <article class="card"><div class="card-img"><img src="05-product-step-guide.jpg" alt="Product Step Guide"></div><div class="card-body"><div><div class="card-title">05. Product Step Guide</div><div class="card-cat">Product Illustration</div></div><div class="arrow">→</div></div></article>
+      <article class="card"><div class="card-img"><img src="06-sports-car-illustration.jpg" alt="Sports Car Illustration"></div><div class="card-body"><div><div class="card-title">06. Sports Car Illustration</div><div class="card-cat">Digital Artwork</div></div><div class="arrow">→</div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <img class="about-photo" src="profile.jpg" alt="Faimul BD">
+    <div>
+      <div class="kicker">ABOUT ME</div>
+      <h2>Turning Ideas<br>into <span style="color:var(--blue)">Visuals</span></h2>
+      <p>Hello! I'm Faimul, a graphic designer passionate about creating clean, modern and effective visuals. I specialize in illustration, instruction graphics and product design.</p>
+      <a class="btn light" style="margin-top:18px" href="#contact">More About Me →</a>
+    </div>
+    <div class="skills">
+      <div class="kicker">SKILLS</div>
+      <div class="skill"><div class="skill-row"><span>Illustration</span><span>95%</span></div><div class="bar"><i style="width:95%"></i></div></div>
+      <div class="skill"><div class="skill-row"><span>Line Art</span><span>90%</span></div><div class="bar"><i style="width:90%"></i></div></div>
+      <div class="skill"><div class="skill-row"><span>Graphic Design</span><span>88%</span></div><div class="bar"><i style="width:88%"></i></div></div>
+      <div class="skill"><div class="skill-row"><span>Adobe Illustrator</span><span>90%</span></div><div class="bar"><i style="width:90%"></i></div></div>
+      <div class="skill"><div class="skill-row"><span>Adobe Photoshop</span><span>85%</span></div><div class="bar"><i style="width:85%"></i></div></div>
+      <div class="skill"><div class="skill-row"><span>Visual Communication</span><span>88%</span></div><div class="bar"><i style="width:88%"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="container cta-inner">
+    <div><div class="kicker">GET IN TOUCH</div><h2>Let's Work Together</h2></div>
+    <p>Have a project in mind? I'm always open for new opportunities and exciting collaborations.</p>
+    <div>
+      <div class="contact-number">◉ &nbsp; +880 1329-66297</div>
+      <a class="btn" href="https://wa.me/880132966297?text=Hello%20Faimul%2C%20I%20want%20to%20discuss%20a%20design%20project." target="_blank" style="margin-top:10px">Chat on WhatsApp →</a>
     </div>
   </div>
 </section>
@@ -351,19 +317,14 @@ footer{
 </main>
 
 <footer>
-  <div class="container">
-    © 2026 Faimul BD — Graphic Designer. All rights reserved.
+  <div class="container footer-inner">
+    <div class="footer-logo">FAIMUL <span>BD</span></div>
+    <div>© 2026 Faimul BD. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a>
+    </div>
   </div>
 </footer>
-
-<script>
-function toggleMenu(){
-  document.getElementById('nav').classList.toggle('open');
-}
-document.querySelectorAll('nav a').forEach(link=>{
-  link.addEventListener('click',()=>document.getElementById('nav').classList.remove('open'));
-});
-</script>
 
 </body>
 </html>
