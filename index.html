@@ -3,404 +3,1190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Faimul BD - Web Developer & Designer Portfolio">
-<title>Faimul BD | Web Developer & Designer</title>
+
+<meta name="description" content="Faimul BD - Professional Graphic Designer Portfolio">
+
+<title>Faimul BD | Graphic Designer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --bg:#020b18;
-  --bg2:#06162a;
-  --card:rgba(8,25,46,.72);
-  --text:#f4f8ff;
-  --muted:#aebed3;
-  --blue:#19bfff;
-  --blue2:#087df0;
-  --line:rgba(25,191,255,.22);
-  --shadow:0 0 35px rgba(25,191,255,.16);
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:
-    radial-gradient(circle at 85% 20%,rgba(8,125,240,.15),transparent 30%),
-    radial-gradient(circle at 10% 80%,rgba(25,191,255,.10),transparent 28%),
-    linear-gradient(135deg,var(--bg),var(--bg2));
-  color:var(--text);
-  line-height:1.6;
-  overflow-x:hidden;
+    font-family:Inter,Arial,sans-serif;
+    background:#07101f;
+    color:#eef4ff;
+    line-height:1.6;
 }
-a{text-decoration:none;color:inherit}
-.container{width:min(1120px,92%);margin:auto}
 
-/* Header */
-header{
-  position:fixed;top:0;left:0;width:100%;z-index:1000;
-  background:rgba(2,11,24,.82);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,255,255,.07);
+a{
+    text-decoration:none;
+    color:inherit;
 }
-.nav{
-  height:78px;display:flex;align-items:center;justify-content:space-between;
+
+.container{
+    width:min(1160px,92%);
+    margin:auto;
 }
-.logo{font-size:30px;font-weight:800;letter-spacing:-1px}
-.logo span{color:var(--blue)}
-.nav-links{display:flex;gap:30px;align-items:center}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(7,16,31,.88);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-inner{
+    height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    font-size:27px;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.brand span{
+    color:#35b9ff;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
 .nav-links a{
-  color:#e9f2ff;font-weight:600;position:relative;padding:8px 0;
-  transition:.25s;
+    color:#d7e0ed;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
 }
-.nav-links a:hover,.nav-links a.active{color:var(--blue)}
-.nav-links a.active:after{
-  content:"";position:absolute;left:0;right:0;bottom:-7px;height:3px;
-  background:var(--blue);border-radius:99px;box-shadow:0 0 12px var(--blue);
-}
-.menu{display:none;font-size:28px;cursor:pointer;color:var(--blue)}
 
-/* Hero */
+.nav-links a:hover{
+    color:#35b9ff;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:none;
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
 .hero{
-  min-height:100vh;padding-top:120px;display:flex;align-items:center;
-  position:relative;
+    position:relative;
+    overflow:hidden;
+    padding:110px 0 95px;
+    border-bottom:1px solid rgba(255,255,255,.07);
 }
+
 .hero-grid{
-  display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:70px;
+    align-items:center;
 }
+
 .eyebrow{
-  color:var(--blue);font-size:14px;letter-spacing:5px;font-weight:700;
-  margin-bottom:18px;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2.2px;
+    color:#35b9ff;
+    margin-bottom:18px;
 }
-.hero h1{font-size:clamp(48px,7vw,78px);line-height:1.02;margin-bottom:14px}
-.hero h1 span{color:var(--blue);text-shadow:0 0 25px rgba(25,191,255,.25)}
-.hero h2{font-size:clamp(25px,3vw,38px);margin-bottom:22px}
-.hero p{font-size:18px;color:var(--muted);max-width:650px}
-.features{display:flex;gap:28px;flex-wrap:wrap;margin:30px 0}
-.feature{display:flex;gap:10px;align-items:center;color:#dcecff;font-weight:600}
-.feature i{font-style:normal;color:var(--blue);font-size:24px}
-.buttons{display:flex;gap:15px;flex-wrap:wrap}
+
+h1{
+    font-size:clamp(44px,6vw,78px);
+    line-height:1.03;
+    letter-spacing:-4px;
+}
+
+h1 span,
+h2 span{
+    color:#35b9ff;
+}
+
+.hero-text{
+    color:#aebbd0;
+    max-width:620px;
+    font-size:17px;
+    margin:27px 0 32px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:13px;
+    flex-wrap:wrap;
+}
+
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:14px 24px;border-radius:999px;font-weight:700;border:1px solid var(--blue);
-  transition:.25s;cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:13px 21px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:14px;
+    transition:.3s;
 }
-.btn-primary{background:linear-gradient(90deg,#09bdf5,#087df0);box-shadow:0 0 25px rgba(25,191,255,.22)}
-.btn-outline{background:transparent;color:#e9f7ff}
-.btn:hover{transform:translateY(-3px);box-shadow:0 0 28px rgba(25,191,255,.32)}
-.profile-wrap{display:flex;justify-content:center;position:relative}
-.profile-ring{
-  width:min(390px,80vw);aspect-ratio:1;border-radius:50%;padding:8px;
-  background:linear-gradient(135deg,#08bdf5,#087df0,#7c3aed,#08bdf5);
-  box-shadow:0 0 55px rgba(25,191,255,.28);
-  animation:float 5s ease-in-out infinite;
-}
-.profile-ring img{
-  width:100%;height:100%;object-fit:cover;border-radius:50%;
-  border:7px solid #031226;display:block;
-}
-@keyframes float{50%{transform:translateY(-10px)}}
-.badge{
-  position:absolute;bottom:12px;right:5px;
-  background:rgba(4,18,35,.92);border:1px solid var(--blue);
-  border-radius:16px;padding:12px 16px;box-shadow:var(--shadow);
-}
-.badge strong{display:block;color:var(--blue)}
-.badge small{color:var(--muted)}
 
-/* Sections */
-section{padding:105px 0;position:relative}
-.section-head{text-align:center;margin-bottom:50px}
-.section-head .mini{color:var(--blue);letter-spacing:4px;font-size:13px;font-weight:700}
-.section-head h2{font-size:42px;margin-top:8px}
-.section-head p{color:var(--muted);max-width:650px;margin:12px auto 0}
-.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:center}
-.about-card,.skill-card,.project-card,.contact-card,.stat{
-  background:var(--card);border:1px solid var(--line);border-radius:22px;
-  box-shadow:var(--shadow);backdrop-filter:blur(10px);
+.btn-primary{
+    background:#35b9ff;
+    color:#04101c;
+    box-shadow:0 10px 35px rgba(53,185,255,.22);
 }
-.about-card{padding:32px;text-align:center}
-.about-card img{width:210px;height:210px;border-radius:50%;object-fit:cover;border:4px solid var(--blue);box-shadow:0 0 30px rgba(25,191,255,.2)}
-.about-card h3{font-size:27px;margin:18px 0 4px}
-.about-card .role{color:var(--blue)}
-.about-text p{color:var(--muted);font-size:17px;margin-bottom:18px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
-.stat{padding:20px;text-align:center}
-.stat strong{font-size:30px;color:var(--blue);display:block}
-.stat span{color:var(--muted);font-size:13px}
 
-.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.skill-card{padding:25px}
-.skill-card h3{margin-bottom:15px}
-.skill{margin:16px 0}
-.skill-top{display:flex;justify-content:space-between;color:#dbe9fa;font-size:14px;margin-bottom:7px}
-.bar{height:8px;background:#10233c;border-radius:99px;overflow:hidden}
-.bar span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--blue2))}
-
-.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.project-card{padding:27px;transition:.25s}
-.project-card:hover{transform:translateY(-7px)}
-.project-icon{font-size:36px;color:var(--blue);margin-bottom:14px}
-.project-card h3{font-size:22px;margin-bottom:8px}
-.project-card p{color:var(--muted);margin-bottom:18px}
-.tags{display:flex;gap:8px;flex-wrap:wrap}
-.tags span{font-size:12px;padding:6px 10px;border-radius:99px;border:1px solid var(--line);color:#bfeaff}
-
-.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:25px}
-.contact-card{padding:32px}
-.contact-item{display:flex;gap:15px;align-items:center;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.06)}
-.contact-item:last-child{border-bottom:0}
-.contact-item .icon{font-size:25px;color:var(--blue)}
-.contact-item small{display:block;color:#7f94ad}
-.contact-item a:hover{color:var(--blue)}
-.whatsapp{color:#22e27b}
-form{display:grid;gap:14px}
-input,textarea{
-  width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);
-  background:#06172b;color:#fff;outline:none;font:inherit;
+.btn-primary:hover{
+    transform:translateY(-3px);
 }
-input:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 15px rgba(25,191,255,.1)}
-textarea{min-height:145px;resize:vertical}
 
-.socials{display:flex;gap:12px;margin-top:22px}
-.socials a{
-  width:42px;height:42px;border:1px solid var(--line);border-radius:50%;
-  display:grid;place-items:center;color:var(--blue);font-weight:800;
-  transition:.2s;
+.btn-ghost{
+    border:1px solid rgba(255,255,255,.16);
+    color:#e8f0fb;
 }
-.socials a:hover{background:var(--blue);color:#00101e;transform:translateY(-3px)}
 
-footer{padding:28px 0;text-align:center;color:#8295ac;border-top:1px solid rgba(255,255,255,.06)}
-footer span{color:var(--blue)}
+.btn-ghost:hover{
+    border-color:#35b9ff;
+    color:#35b9ff;
+}
 
-@media(max-width:850px){
-  .nav-links{
-    position:absolute;top:78px;left:0;width:100%;display:none;flex-direction:column;
-    background:#031022;padding:22px;border-bottom:1px solid var(--line);gap:18px;
-  }
-  .nav-links.show{display:flex}
-  .menu{display:block}
-  .hero-grid,.about-grid,.contact-wrap{grid-template-columns:1fr}
-  .hero{text-align:center}
-  .hero p{margin:auto}
-  .features,.buttons{justify-content:center}
-  .profile-wrap{margin-top:20px}
-  .skills-grid,.projects-grid{grid-template-columns:1fr}
-  .stats{grid-template-columns:repeat(2,1fr)}
+.mini-stats{
+    display:flex;
+    gap:32px;
+    margin-top:45px;
 }
-@media(max-width:480px){
-  .logo{font-size:25px}
-  .hero h1{font-size:46px}
-  .section-head h2{font-size:34px}
-  .stats{grid-template-columns:1fr}
-  .btn{width:100%}
+
+.mini-stats div{
+    display:flex;
+    flex-direction:column;
 }
+
+.mini-stats strong{
+    font-size:20px;
+}
+
+.mini-stats span{
+    font-size:11px;
+    color:#8494aa;
+}
+
+/* ================= HERO IMAGE ================= */
+
+.hero-card{
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:24px;
+    padding:15px;
+    box-shadow:0 25px 80px rgba(0,0,0,.3);
+    transform:rotate(1deg);
+}
+
+.card-label{
+    font-size:10px;
+    letter-spacing:2px;
+    color:#8fa0b6;
+    padding:10px 8px;
+}
+
+.hero-art{
+    height:420px;
+    border-radius:16px;
+    overflow:hidden;
+    background:white;
+}
+
+.hero-art img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.hero-card-footer{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 8px 7px;
+    font-size:12px;
+    color:#9ba9bc;
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+    padding:105px 0;
+}
+
+.about-section{
+    background:#0a1425;
+}
+
+.two-col{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:80px;
+}
+
+.two-col h2,
+.section-heading h2,
+.contact-section h2{
+    font-size:clamp(34px,4vw,52px);
+    line-height:1.08;
+    letter-spacing:-2px;
+}
+
+.about-copy{
+    color:#aebbd0;
+    font-size:17px;
+}
+
+.about-copy p+p{
+    margin-top:22px;
+}
+
+/* ================= SERVICES ================= */
+
+.services-section{
+    background:#07101f;
+}
+
+.section-heading{
+    text-align:center;
+    max-width:680px;
+    margin:0 auto 50px;
+}
+
+.section-heading p:last-child{
+    color:#8392a8;
+    margin-top:13px;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:17px;
+}
+
+.service-card{
+    padding:28px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:18px;
+    background:rgba(255,255,255,.025);
+    min-height:245px;
+    transition:.3s;
+}
+
+.service-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(53,185,255,.5);
+}
+
+.service-number{
+    color:#35b9ff;
+    font-weight:800;
+    font-size:13px;
+    margin-bottom:45px;
+}
+
+.service-card h3{
+    font-size:19px;
+    margin-bottom:10px;
+}
+
+.service-card p{
+    font-size:13px;
+    color:#8998ad;
+}
+
+/* ================= PORTFOLIO ================= */
+
+.portfolio-section{
+    background:#0a1425;
+}
+
+.portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.project{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    min-height:320px;
+    background:white;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.project-large{
+    min-height:470px;
+}
+
+.project-wide{
+    min-height:360px;
+}
+
+.project img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.5s;
+}
+
+.project:hover img{
+    transform:scale(1.05);
+}
+
+.project-overlay{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:60px 24px 22px;
+    background:linear-gradient(transparent,rgba(0,0,0,.9));
+}
+
+.project-overlay span{
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1.8px;
+    color:#35b9ff;
+    font-weight:800;
+}
+
+.project-overlay h3{
+    font-size:19px;
+    margin-top:5px;
+}
+
+/* ================= CTA ================= */
+
+.cta-section{
+    padding:30px 0 105px;
+    background:#0a1425;
+}
+
+.cta-box{
+    border:1px solid rgba(53,185,255,.25);
+    background:linear-gradient(
+        120deg,
+        rgba(53,185,255,.08),
+        rgba(124,77,255,.06)
+    );
+    border-radius:24px;
+    padding:45px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.cta-box h2{
+    font-size:34px;
+    line-height:1.1;
+}
+
+.cta-box p:last-child{
+    color:#8e9db2;
+    margin-top:7px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+}
+
+.contact-text{
+    color:#8e9db2;
+    max-width:540px;
+    margin-top:20px;
+}
+
+.contact-card{
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+.contact-row{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:22px 0;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    font-size:14px;
+}
+
+.contact-row span{
+    color:#7f8da2;
+}
+
+.contact-row a{
+    color:#35b9ff;
+    font-weight:700;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid rgba(255,255,255,.08);
+    padding:24px 0;
+    color:#68778d;
+    font-size:12px;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+}
+
+.footer-inner a{
+    color:#9caabe;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .hero-grid,
+    .two-col,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-grid{
+        gap:45px;
+    }
+
+    .service-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero-card{
+        max-width:650px;
+        margin:auto;
+        width:100%;
+    }
+
+    .two-col{
+        gap:35px;
+    }
+
+    .cta-box{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+}
+
+@media(max-width:650px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links.open{
+        display:flex;
+        position:absolute;
+        top:76px;
+        left:0;
+        right:0;
+        background:#081221;
+        padding:20px 5%;
+        flex-direction:column;
+        gap:16px;
+        border-bottom:1px solid rgba(255,255,255,.1);
+    }
+
+    .hero{
+        padding:70px 0;
+    }
+
+    .hero-card{
+        transform:none;
+    }
+
+    .hero-art{
+        height:300px;
+    }
+
+    h1{
+        letter-spacing:-2px;
+    }
+
+    .mini-stats{
+        gap:18px;
+        flex-wrap:wrap;
+    }
+
+    .section{
+        padding:75px 0;
+    }
+
+    .service-grid,
+    .portfolio-grid{
+        grid-template-columns:1fr;
+    }
+
+    .project,
+    .project-large,
+    .project-wide{
+        min-height:330px;
+    }
+
+    .cta-box{
+        padding:30px;
+    }
+
+    .cta-box h2{
+        font-size:28px;
+    }
+
+    .footer-inner{
+        gap:20px;
+        flex-direction:column;
+    }
+}
+
 </style>
 </head>
 
 <body>
-<header>
-  <div class="container nav">
-    <a href="#home" class="logo">Faimul <span>BD</span></a>
-    <div class="menu" onclick="toggleMenu()">☰</div>
-    <nav class="nav-links" id="navLinks">
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+<div class="container nav-inner">
+
+<a class="brand" href="#home">
+Faimul<span>BD</span>
+</a>
+
+<button class="menu-btn" aria-label="Menu">
+☰
+</button>
+
+<nav class="nav-links">
+
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+</div>
+
 </header>
 
+
 <main>
-<section class="hero" id="home">
-  <div class="container hero-grid">
-    <div>
-      <div class="eyebrow">WELCOME TO MY PORTFOLIO</div>
-      <h1>Hi, I'm <span>Faimul</span></h1>
-      <h2>Web Developer & Designer</h2>
-      <p>I create modern, responsive and user-friendly websites with clean design, smooth performance and a professional look.</p>
 
-      <div class="features">
-        <div class="feature"><i>⌘</i> Clean Code</div>
-        <div class="feature"><i>✦</i> Modern Design</div>
-        <div class="feature"><i>⚡</i> Fast Performance</div>
-      </div>
+<!-- ================= HERO ================= -->
 
-      <div class="buttons">
-        <a class="btn btn-primary" href="#contact">✉ Contact Me</a>
-        <a class="btn btn-outline" href="#projects">View Projects →</a>
-      </div>
-    </div>
+<section id="home" class="hero">
 
-    <div class="profile-wrap">
-      <div class="profile-ring">
-        <img src="profile.jpg" alt="Faimul BD">
-      </div>
-      <div class="badge">
-        <strong>Available for work</strong>
-        <small>Web • Design • Digital</small>
-      </div>
-    </div>
-  </div>
+<div class="container hero-grid">
+
+<div class="hero-copy">
+
+<p class="eyebrow">
+GRAPHIC DESIGNER • DIGITAL ARTIST
+</p>
+
+<h1>
+Creative visuals that
+<br>
+<span>tell your story.</span>
+</h1>
+
+<p class="hero-text">
+
+I create clean line art, step-by-step instruction graphics,
+product illustrations and modern digital artwork for brands
+and businesses.
+
+</p>
+
+<div class="hero-buttons">
+
+<a class="btn btn-primary" href="#portfolio">
+View My Work
+</a>
+
+<a class="btn btn-ghost"
+href="https://wa.me/880132966297"
+target="_blank">
+
+WhatsApp Me
+
+</a>
+
+</div>
+
+
+<div class="mini-stats">
+
+<div>
+<strong>01</strong>
+<span>Line Art</span>
+</div>
+
+<div>
+<strong>02</strong>
+<span>Instruction Design</span>
+</div>
+
+<div>
+<strong>03</strong>
+<span>Digital Illustration</span>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="hero-card">
+
+<div class="card-label">
+SELECTED WORK
+</div>
+
+<div class="hero-art">
+
+<img
+src="images/step-guide.jpg"
+alt="Step-by-step illustration">
+
+</div>
+
+<div class="hero-card-footer">
+
+<span>
+Instruction & Product Illustration
+</span>
+
+<span>✦</span>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section id="about">
-  <div class="container">
-    <div class="section-head">
-      <div class="mini">ABOUT ME</div>
-      <h2>Who I Am</h2>
-      <p>A simple introduction about my work, interests and goals.</p>
-    </div>
 
-    <div class="about-grid">
-      <div class="about-card">
-        <img src="profile.jpg" alt="Faimul BD profile photo">
-        <h3>Faimul BD</h3>
-        <div class="role">Web Developer & Designer</div>
-      </div>
+<!-- ================= ABOUT ================= -->
 
-      <div class="about-text">
-        <p>Hello! I'm Faimul. I am interested in web development, modern website design and digital solutions.</p>
-        <p>My goal is to create simple, beautiful and user-friendly websites that work perfectly on computers and mobile devices.</p>
-        <div class="stats">
-          <div class="stat"><strong>5+</strong><span>Projects</span></div>
-          <div class="stat"><strong>10+</strong><span>Technologies</span></div>
-          <div class="stat"><strong>100%</strong><span>Responsive</span></div>
-          <div class="stat"><strong>24/7</strong><span>Learning</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<section id="about" class="section about-section">
+
+<div class="container two-col">
+
+<div>
+
+<p class="eyebrow">
+ABOUT ME
+</p>
+
+<h2>
+Designing with clarity,
+<br>
+<span>detail & purpose.</span>
+</h2>
+
+</div>
+
+
+<div class="about-copy">
+
+<p>
+
+Hello! I'm Faimul, a graphic designer focused on
+illustration and visual communication. I turn ideas,
+products and instructions into simple, attractive
+visuals that are easy to understand.
+
+</p>
+
+<p>
+
+My work includes technical-style line drawings,
+step-by-step instruction graphics, product illustrations
+and creative digital artwork.
+
+</p>
+
+</div>
+
+</div>
+
 </section>
 
-<section id="skills">
-  <div class="container">
-    <div class="section-head">
-      <div class="mini">MY SKILLS</div>
-      <h2>What I Can Do</h2>
-      <p>Technologies and skills I use to build modern websites.</p>
-    </div>
 
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h3>Frontend Development</h3>
-        <div class="skill"><div class="skill-top"><span>HTML</span><span>95%</span></div><div class="bar"><span style="width:95%"></span></div></div>
-        <div class="skill"><div class="skill-top"><span>CSS</span><span>90%</span></div><div class="bar"><span style="width:90%"></span></div></div>
-        <div class="skill"><div class="skill-top"><span>JavaScript</span><span>80%</span></div><div class="bar"><span style="width:80%"></span></div></div>
-      </div>
+<!-- ================= SERVICES ================= -->
 
-      <div class="skill-card">
-        <h3>Design</h3>
-        <div class="skill"><div class="skill-top"><span>Responsive UI</span><span>92%</span></div><div class="bar"><span style="width:92%"></span></div></div>
-        <div class="skill"><div class="skill-top"><span>Modern Layout</span><span>88%</span></div><div class="bar"><span style="width:88%"></span></div></div>
-        <div class="skill"><div class="skill-top"><span>UX Thinking</span><span>82%</span></div><div class="bar"><span style="width:82%"></span></div></div>
-      </div>
+<section id="services" class="section services-section">
 
-      <div class="skill-card">
-        <h3>Tools & Workflow</h3>
-        <div class="skill"><div class="skill-top"><span>GitHub</span><span>85%</span></div><div class="bar"><span style="width:85%"></span></div></div>
-        <div class="skill"><div class="skill-top"><span>Deployment</span><span>85%</span></div><div class="bar"><span style="width:85%"></span></div></div>
-        <div class="skill"><div class="skill-top"><span>Problem Solving</span><span>90%</span></div><div class="bar"><span style="width:90%"></span></div></div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+
+<div class="section-heading">
+
+<p class="eyebrow">
+WHAT I DO
+</p>
+
+<h2>
+My <span>Services</span>
+</h2>
+
+<p>
+Professional graphics designed for products,
+brands and digital platforms.
+</p>
+
+</div>
+
+
+<div class="service-grid">
+
+
+<article class="service-card">
+
+<div class="service-number">
+01
+</div>
+
+<h3>
+Line Art
+</h3>
+
+<p>
+Clean black-and-white line illustrations for
+products, manuals, books and presentations.
+</p>
+
+</article>
+
+
+<article class="service-card">
+
+<div class="service-number">
+02
+</div>
+
+<h3>
+Step-by-Step Guides
+</h3>
+
+<p>
+Clear visual instructions that show users exactly
+how to use, install or assemble a product.
+</p>
+
+</article>
+
+
+<article class="service-card">
+
+<div class="service-number">
+03
+</div>
+
+<h3>
+Product Illustration
+</h3>
+
+<p>
+Stylish product visuals for catalogs, websites,
+packaging and marketing materials.
+</p>
+
+</article>
+
+
+<article class="service-card">
+
+<div class="service-number">
+04
+</div>
+
+<h3>
+Digital Artwork
+</h3>
+
+<p>
+Creative vector-style artwork and custom
+illustrations made to match your visual identity.
+</p>
+
+</article>
+
+
+</div>
+
+</div>
+
 </section>
 
-<section id="projects">
-  <div class="container">
-    <div class="section-head">
-      <div class="mini">MY PROJECTS</div>
-      <h2>Recent Work</h2>
-      <p>Some example projects and digital solutions.</p>
-    </div>
 
-    <div class="projects-grid">
-      <article class="project-card">
-        <div class="project-icon">⌘</div>
-        <h3>Business Website</h3>
-        <p>A clean and responsive website for a modern business or service company.</p>
-        <div class="tags"><span>HTML</span><span>CSS</span><span>Responsive</span></div>
-      </article>
-      <article class="project-card">
-        <div class="project-icon">◈</div>
-        <h3>Portfolio Website</h3>
-        <p>A professional personal portfolio with projects, skills and contact information.</p>
-        <div class="tags"><span>Design</span><span>JavaScript</span><span>UI</span></div>
-      </article>
-      <article class="project-card">
-        <div class="project-icon">⚡</div>
-        <h3>Digital Solution</h3>
-        <p>A fast, mobile-friendly digital experience designed around real user needs.</p>
-        <div class="tags"><span>Web</span><span>UX</span><span>Performance</span></div>
-      </article>
-    </div>
-  </div>
+<!-- ================= PORTFOLIO ================= -->
+
+<section id="portfolio" class="section portfolio-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<p class="eyebrow">
+MY WORK
+</p>
+
+<h2>
+Selected <span>Projects</span>
+</h2>
+
+<p>
+A few examples of my illustration and graphic
+design work.
+</p>
+
+</div>
+
+
+<div class="portfolio-grid">
+
+
+<article class="project project-large">
+
+<img
+src="images/step-guide.jpg"
+alt="Step-by-step instruction graphic">
+
+<div class="project-overlay">
+
+<span>
+Instruction Design
+</span>
+
+<h3>
+Step-by-Step Product Guide
+</h3>
+
+</div>
+
+</article>
+
+
+<article class="project">
+
+<img
+src="images/bicycle-line-art.jpg"
+alt="Bicycle line art">
+
+<div class="project-overlay">
+
+<span>
+Line Art
+</span>
+
+<h3>
+Technical Bicycle Illustration
+</h3>
+
+</div>
+
+</article>
+
+
+<article class="project">
+
+<img
+src="images/car-illustration.jpg"
+alt="Car digital illustration">
+
+<div class="project-overlay">
+
+<span>
+Digital Illustration
+</span>
+
+<h3>
+Automotive Artwork
+</h3>
+
+</div>
+
+</article>
+
+
+<article class="project">
+
+<img
+src="images/instruction-manual.jpg"
+alt="Instruction manual">
+
+<div class="project-overlay">
+
+<span>
+Instruction Manual
+</span>
+
+<h3>
+Product Usage Illustration
+</h3>
+
+</div>
+
+</article>
+
+
+<article class="project">
+
+<img
+src="images/step-panels.jpg"
+alt="Three step illustration">
+
+<div class="project-overlay">
+
+<span>
+Visual Guide
+</span>
+
+<h3>
+3-Step Visual Instructions
+</h3>
+
+</div>
+
+</article>
+
+
+<article class="project project-wide">
+
+<img
+src="images/color-product.jpg"
+alt="Colored product illustration">
+
+<div class="project-overlay">
+
+<span>
+Product Illustration
+</span>
+
+<h3>
+Color Product Artwork
+</h3>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
 </section>
 
-<section id="contact">
-  <div class="container">
-    <div class="section-head">
-      <div class="mini">CONTACT ME</div>
-      <h2>Let's Work Together</h2>
-      <p>Have a project or idea? Send a message and let's discuss it.</p>
-    </div>
 
-    <div class="contact-wrap">
-      <div class="contact-card">
-        <h3>Get In Touch</h3>
-        <div class="contact-item">
-          <div class="icon">✉</div>
-          <div><small>Email</small><a href="mailto:your@email.com">your@email.com</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="icon whatsapp">◉</div>
-          <div><small>WhatsApp</small><a class="whatsapp" href="https://wa.me/88880132966297" target="_blank">Chat on WhatsApp</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="icon">⌖</div>
-          <div><small>Service</small><span>Web Development & Design</span></div>
-        </div>
-        <div class="socials">
-          <a href="https://wa.me/880132966297?text=Hello%20Faimul%20BD%2C%20I%20want%20to%20contact%20you." aria-label="GitHub">GH</a>
-          <a href="#" aria-label="LinkedIn">in</a>
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="https://wa.me/88880132966297" target="_blank" aria-label="WhatsApp">WA</a>
-        </div>
-      </div>
+<!-- ================= CTA ================= -->
 
-      <div class="contact-card">
-        <form onsubmit="sendMessage(event)">
-          <input id="name" type="text" placeholder="Your Name" required>
-          <input id="email" type="email" placeholder="Your Email" required>
-          <textarea id="message" placeholder="Your Message" required></textarea>
-          <button class="btn btn-primary" type="submit">Send Message →</button>
-        </form>
-      </div>
-    </div>
-  </div>
+<section class="cta-section">
+
+<div class="container cta-box">
+
+<div>
+
+<p class="eyebrow">
+LET'S WORK TOGETHER
+</p>
+
+<h2>
+Have a design project in mind?
+</h2>
+
+<p>
+Let's turn your idea into a professional visual.
+</p>
+
+</div>
+
+
+<a
+class="btn btn-primary"
+href="https://wa.me/880132966297"
+target="_blank">
+
+Chat on WhatsApp ↗
+
+</a>
+
+</div>
+
 </section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="section contact-section">
+
+<div class="container contact-grid">
+
+<div>
+
+<p class="eyebrow">
+CONTACT
+</p>
+
+<h2>
+Let's create something
+<br>
+<span>great together.</span>
+</h2>
+
+<p class="contact-text">
+
+For design work, illustrations and custom graphics,
+contact me directly on WhatsApp.
+
+</p>
+
+</div>
+
+
+<div class="contact-card">
+
+
+<div class="contact-row">
+
+<span>
+WhatsApp
+</span>
+
+<a
+href="https://wa.me/880132966297"
+target="_blank">
+
+0132966297 ↗
+
+</a>
+
+</div>
+
+
+<div class="contact-row">
+
+<span>
+Specialization
+</span>
+
+<strong>
+Graphic Design & Illustration
+</strong>
+
+</div>
+
+
+<div class="contact-row">
+
+<span>
+Available for
+</span>
+
+<strong>
+Freelance Projects
+</strong>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
 </main>
 
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
-  © <span id="year"></span> Faimul BD. All rights reserved.
+
+<div class="container footer-inner">
+
+<span>
+© 2026 Faimul BD. All rights reserved.
+</span>
+
+<a href="#home">
+Back to top ↑
+</a>
+
+</div>
+
 </footer>
 
-<script>
-function toggleMenu(){
-  document.getElementById('navLinks').classList.toggle('show');
-}
-document.querySelectorAll('.nav-links a').forEach(a=>{
-  a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('show'));
-});
-document.getElementById('year').textContent=new Date().getFullYear();
 
-function sendMessage(e){
-  e.preventDefault();
-  const name=document.getElementById('name').value.trim();
-  const message=document.getElementById('message').value.trim();
-  const phone='88880132966297'; // Replace with your WhatsApp number
-  const text=`Hello Faimul BD,%0A%0AName: ${encodeURIComponent(name)}%0A%0AMessage: ${encodeURIComponent(message)}`;
-  window.open(`https://wa.me/${phone}?text=${text}`,'_blank');
-}
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+const menuBtn = document.querySelector(".menu-btn");
+
+const nav = document.querySelector(".nav-links");
+
+
+menuBtn.addEventListener("click", function(){
+
+    nav.classList.toggle("open");
+
+});
+
+
+document.querySelectorAll(".nav-links a").forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        nav.classList.remove("open");
+
+    });
+
+});
+
 </script>
+
 </body>
 </html>
